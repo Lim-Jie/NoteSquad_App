@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
     tools:context=".MainActivity">
 
 
@@ -14,25 +13,28 @@
         android:id="@+id/NoteSquad_Registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
         android:text="NoteSquad Registration "
         android:textSize="30dp"
-        android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <EditText
         android:id="@+id/Password"
         android:layout_width="232dp"
         android:layout_height="57dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="288dp"
         android:layout_marginEnd="139dp"
         android:background="#30ffffff"
         android:ems="10"
+        android:fontFamily="@font/robotoregular"
+
         android:hint="Password"
         android:inputType="textPassword"
         android:textColorHint="@color/black"
@@ -45,8 +47,8 @@
         android:id="@+id/EmailAddress"
         android:layout_width="232dp"
         android:layout_height="66dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="204dp"
         android:background="#30ffffff"
         android:ems="10"
         android:hint="Email: "

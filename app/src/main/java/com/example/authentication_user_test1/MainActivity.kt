@@ -1,5 +1,6 @@
 package com.example.authentication_user_test1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,16 +20,17 @@ class MainActivity : AppCompatActivity() {
         //event listener
         LoginButton.setOnClickListener {v->
             if(username.text.toString().equals("Li Jie") &&  password.text.toString().equals("123")){
-                Toast.makeText(this, "You are gay", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                OpenHomePage() //Redirect to homepage when login successful
+
             }else{
-                Toast.makeText(this, "You failed",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login Failed",Toast.LENGTH_SHORT).show()
             }
-
-
         }
-
-
-
     }
 
+    fun OpenHomePage(){
+        val intent = Intent(this, HomePage::class.java)
+        startActivity(intent)
+    }
 }
