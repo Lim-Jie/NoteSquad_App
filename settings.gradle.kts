@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Authentication_user_test1"
+rootProject.name = "NoteSquad_TestApp"
 include(":app")
  

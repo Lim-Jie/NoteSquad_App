@@ -1,4 +1,4 @@
-package com.example.authentication_user_test1
+package com.example.NoteSquad_TestApp
 
 import org.junit.Test
 

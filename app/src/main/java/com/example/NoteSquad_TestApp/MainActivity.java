@@ -1,4 +1,4 @@
-package com.example.authentication_user_test1;
+package com.example.NoteSquad_TestApp;
 
 import android.content.Intent;
 import android.os.Bundle;

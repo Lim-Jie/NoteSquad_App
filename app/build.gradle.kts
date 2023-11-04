@@ -5,11 +5,11 @@ plugins {
 
 
 android {
-    namespace = "com.example.authentication_user_test1"
+    namespace = "com.example.NoteSquad_TestApp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.authentication_user_test1"
+        applicationId = "com.example.NoteSquad_TestApp"
         minSdk = 29
         targetSdk = 33
         versionCode = 1

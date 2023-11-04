@@ -1,4 +1,4 @@
-package com.example.authentication_user_test1
+package com.example.NoteSquad_TestApp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

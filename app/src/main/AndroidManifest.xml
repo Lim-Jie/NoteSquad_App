@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.NoteSquad_TestApp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -13,10 +14,10 @@
         android:theme="@style/Theme.Authentication_user_test1"
         tools:targetApi="31">
         <activity
-            android:name=".RegistrationPage"
+            android:name="com.example.NoteSquad_TestApp.RegistrationPage"
             android:exported="false" />
         <activity
-            android:name=".NoteSharepage"
+            android:name="com.example.NoteSquad_TestApp.NoteSharepage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name="com.example.NoteSquad_TestApp.HomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.NoteSquad_TestApp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
