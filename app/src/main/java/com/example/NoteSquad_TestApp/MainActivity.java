@@ -8,7 +8,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
+
+
+    FirebaseFirestore firestore;
+    Map<String,Object> users=new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
