@@ -6,4 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationPage">
 
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="237dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="376dp"
+        android:ems="10"
+        android:hint="Confirm Password: "
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="239dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="192dp"
+        android:ems="10"
+        android:hint="Email Address: "
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="237dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="296dp"
+        android:ems="10"
+        android:hint="Password: "
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="303dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="100dp"
+        android:text="Create an account"
+        android:textSize="30dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="224dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/GoogleSignUpImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/GoogleRegisterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="224dp"
+        android:text="Google Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

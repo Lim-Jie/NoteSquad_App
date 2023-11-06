@@ -12,7 +12,20 @@
           "package_name": "com.example.NoteSquad_TestApp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "766221050463-860eqopnk8rikf2d220esmjur071ua07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.NoteSquad_TestApp",
+            "certificate_hash": "16b046a6bc3ca6af237c221f34f3b807cef70e37"
+          }
+        },
+        {
+          "client_id": "766221050463-9d9i1bd0gjda0h1co8q8p05qj61o38vq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCxg_TUSGgVREm5S7UrDhtqo5ew20uqqbQ"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766221050463-9d9i1bd0gjda0h1co8q8p05qj61o38vq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

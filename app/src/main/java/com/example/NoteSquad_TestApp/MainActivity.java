@@ -8,6 +8,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -17,33 +22,59 @@ public class MainActivity extends AppCompatActivity {
 
 
     FirebaseFirestore firestore;
-    Map<String,Object> users=new HashMap<>();
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
 
-        // LOGIN PAGE FOR USERNAME, PASSWORD, AND BUTTON
-        TextView username = findViewById(R.id.EmailAddress);
-        TextView password = findViewById(R.id.Password);
-        Button loginButton = findViewById(R.id.LoginButton);
-        Button signUpButton = findViewById(R.id.SignUpButton);
+            FirebaseApp.initializeApp(this);
 
-        // SET THE FIREBASE VERIFICATION HERE
-        loginButton.setOnClickListener(v-> {
-            if (username.getText().toString().equals("Li Jie") && password.getText().toString().equals("123")) {
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+            // LOGIN PAGE FOR USERNAME, PASSWORD, AND BUTTON
+            TextView username = findViewById(R.id.EmailAddress);
+            TextView password = findViewById(R.id.Password);
+            Button loginButton = findViewById(R.id.LoginButton);
+            Button signUpButton = findViewById(R.id.SignUpButton);
+
+            // MANUAL VERIFICATION
+            loginButton.setOnClickListener(v-> {
+                if (username.getText().toString().equals("Li Jie") && password.getText().toString().equals("123")) {
+                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    openHomePage();
+                } else {
+                    Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+            // // REDIRECT TO REGISTRATION PAGE
+            signUpButton.setOnClickListener(v->{
+                openRegistrationPage();
+            });
+
+
+            //GOOGLE RESUME SIGNED IN ACCOUNT
+            gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+
+            gsc= GoogleSignIn.getClient(this,gso);
+
+            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+            if(account!=null){
+                String name= account.getDisplayName();
+                String Mail= account.getEmail();
                 openHomePage();
-            } else {
-                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
             }
-        });
 
-        // SIGN UP BUTTON FOR REGISTRATION PAGE
-        signUpButton.setOnClickListener(v->{
-            openHomePage();
-        });
+
+
+
+
+
     }
 
     // LITERALLY OPEN THE HOME PAGE
@@ -55,8 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     // LITERALLY OPEN THE REGISTRATION PAGE
     public void openRegistrationPage() {
-        Intent intent = new Intent(this, RegistrationPage.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RegistrationPage.class));
         finish();
     }
 }
