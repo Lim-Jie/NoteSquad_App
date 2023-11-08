@@ -44,8 +44,8 @@ public final class HomePage extends AppCompatActivity {
     }
 
     public final void OpenNoteShare() {
-        Intent intent = new Intent((Context)this, NoteSharepage.class);
-        this.startActivity(intent);
+        Intent intent = new Intent(this, NoteSharepage.class);
+        startActivity(intent);
     }
 
 
