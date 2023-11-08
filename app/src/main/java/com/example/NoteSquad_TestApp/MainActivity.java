@@ -12,6 +12,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             TextView password = findViewById(R.id.Password);
             Button loginButton = findViewById(R.id.LoginButton);
             Button signUpButton = findViewById(R.id.SignUpButton);
+            Button googleimage=(Button)findViewById(R.id.googleSigninButton);
 
             // MANUAL VERIFICATION
             loginButton.setOnClickListener(v-> {
@@ -70,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 openHomePage();
             }
 
+            //GOOGLE SIGN IN BUTTON
+            googleimage.setOnClickListener(v->{
+                SignIn();
+            });
+
 
 
 
@@ -77,14 +85,56 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // LITERALLY OPEN THE HOME PAGE
+
+    private void SignIn(){
+        Intent intent= gsc.getSignInIntent();
+        startActivityForResult(intent,100);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==100){
+            Task<GoogleSignInAccount> task= GoogleSignIn.getSignedInAccountFromIntent(data);
+
+            try {
+                task.getResult(ApiException.class);
+                openHomePage();
+            }catch(ApiException e){
+                Toast.makeText(this,"Google Sign Up Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // OPEN ACTIVITY HOMEPAGE
     public void openHomePage() {
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
         finish();
     }
 
-    // LITERALLY OPEN THE REGISTRATION PAGE
+    // OPEN ACTIVITY REGISTRATIONPAGE
     public void openRegistrationPage() {
         startActivity(new Intent(this, RegistrationPage.class));
         finish();
