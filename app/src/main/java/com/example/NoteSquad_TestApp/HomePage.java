@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.material.navigation.NavigationBarView;
+import android.view.MenuItem;
+
+
 import org.jetbrains.annotations.Nullable;
 
 
@@ -41,6 +45,13 @@ public final class HomePage extends AppCompatActivity {
 
 
 
+        //NAVIGATION BUTTON HOVER EFFECT
+
+
+
+
+
+
     }
 
     public final void OpenNoteShare() {
@@ -55,6 +66,8 @@ public final class HomePage extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         });
     }
+
+
 
 
 

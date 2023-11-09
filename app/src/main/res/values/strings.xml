@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NoteSquad_TestApp</string>
+    <string name="homepage">Home</string>
+    <string name="notesharepage">NoteShare</string>
+    <string name="forumpage">Forum</string>
+    <string name="profilepage">Profile</string>
+
 </resources>
