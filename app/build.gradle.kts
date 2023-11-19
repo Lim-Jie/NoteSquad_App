@@ -5,8 +5,6 @@ plugins {
 
 }
 
-
-
 android {
     namespace = "com.example.NoteSquad_TestApp"
     compileSdk = 34
@@ -21,6 +19,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+       viewBinding= true
+        dataBinding= true
+
+    }
+
+/*
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -30,9 +35,16 @@ android {
             )
         }
     }
+
+
+ */
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+
+        //1_8 old one
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -56,5 +68,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
 
+    
+    implementation("de.hdodenhof:circleimageview:3.0.0")
 }
 

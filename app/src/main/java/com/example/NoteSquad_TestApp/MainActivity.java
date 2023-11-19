@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -17,10 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
 
 
     FirebaseFirestore firestore;
@@ -83,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
 
@@ -102,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 task.getResult(ApiException.class);
                 openHomePage();
             }catch(ApiException e){
+                e.printStackTrace();
                 Toast.makeText(this,"Google Sign Up Error",Toast.LENGTH_SHORT).show();
             }
         }

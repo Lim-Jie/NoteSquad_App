@@ -1,67 +1,118 @@
 package com.example.NoteSquad_TestApp;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import com.example.NoteSquad_TestApp.databinding.ActivityHomePageBinding;
+import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
+import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationBarView;
-import android.view.MenuItem;
-
-
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.Nullable;
 
 
 public final class HomePage extends AppCompatActivity {
 
+    //change build.gradle to include buildFeatures{ viewBinding=true }
     GoogleSignInOptions gso;
+    private ActivityHomePageBinding binding;
     GoogleSignInClient gsc;
 
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_home_page);
-
-        //BUTTON OBJECT CREATION
-        Button openNoteShareButton = (Button)this.findViewById(R.id.NoteShareButton);
-        Button logoutButton= (Button)findViewById(R.id.logoutButton);
+        setContentView(R.layout.activity_home_page);
 
 
+        //SETS HOMEPAGE FRAGMENT AS DEFAULT FRAGMENT WHEN STARTING ACTIVITY (SAVEDINSTANCESTATE==NULL)
+        if (savedInstanceState == null) {
+            homePageFragment defaultFragment = new homePageFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.constraintLayoutFragment, defaultFragment)
+                    .commit();
+        }
 
-        openNoteShareButton.setOnClickListener(v->{
-            HomePage.this.OpenNoteShare();
-        });
-        logoutButton.setOnClickListener(v->{
-            SignOut();
-        });
 
-
-
-        gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        //GOOGLE FIREBASE SETTINGS
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        gsc= GoogleSignIn.getClient(this,gso);
+        gsc = GoogleSignIn.getClient(this, gso);
+
+
+        //SWITCH FRAGMENT ON BOTTOM NAVIGATION BAR
+        binding= ActivityHomePageBinding.inflate(getLayoutInflater());
+        binding.bottom.setOnItemSelectedListener(item -> {
+            int no=item.getItemId();
+
+            if(R.id.item_1==no){ //HomePageFragment Button 1 (All logics are moved to Fragment instead of activity)
+                replaceFragment(new homePageFragment());
+                return true;
+            }
+            else if( R.id.item_2==no){ //NoteShareFragment Button 2
+                replaceFragment(new noteShareFragment());
+                return true;
+            }
+            else if( R.id.item_3==no){ //ForumFragment Button 3
+                return true;
+            }
+            else if( R.id.item_4==no){ //ProfileFragment Button 4
+                replaceFragment(new profileFragment());
+                return true;
+            }
+            else{ return false;}
+        });
+
+        setContentView(binding.getRoot());
 
 
 
-        //NAVIGATION BUTTON HOVER EFFECT
+        }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.constraintLayoutFragment,fragment);
+        ft.commit();
 
     }
 
-    public final void OpenNoteShare() {
-        Intent intent = new Intent(this, NoteSharepage.class);
-        startActivity(intent);
-    }
 
 
-    private void SignOut(){
-        gsc.signOut().addOnCompleteListener(v->{
+
+    public void SignOut() {
+        gsc.signOut().addOnCompleteListener(v -> {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         });
@@ -71,4 +122,48 @@ public final class HomePage extends AppCompatActivity {
 
 
 
+
 }
+
+
+
+
+//__________________________________TIPS AREA ____________________________________________________________________________________
+
+
+
+/*
+If your code is correct and error still shows, rebuild project OR "File" > "Invalidate Caches / Restart..." and select "Invalidate and Restart."
+
+
+
+     //HOW TO START AN ACTIVITY
+    public final void OpenNoteShare() {
+        Intent intent = new Intent(this, NoteSharepage.class);
+        startActivity(intent);
+    }
+
+    //CREATE A FRAGMENT REPLACER METHOD
+   private void replaceFragment(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.constraintLayoutFragment,fragment);
+        ft.commit();
+
+    }
+
+     //OPEN METHOD FROM ANOTHER ACTIVITY (OVERCOME STATIC AND NON-STATIC ERROR)
+     backButton.setOnClickListener(v -> {
+        HomePage activity = (HomePage) getActivity();
+
+        });
+
+
+
+
+
+
+
+IMPORTANT FOR EXAMS SO FAR, START ACTIVITY(INTENT), FRAGMENT, BUTTON, EVENT LISTENERS, ACTIVITY BINDING
+*/
+
