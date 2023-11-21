@@ -13,7 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutFragment"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="649dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"

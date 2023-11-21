@@ -153,14 +153,16 @@ If your code is correct and error still shows, rebuild project OR "File" > "Inva
     }
 
      //OPEN METHOD FROM ANOTHER ACTIVITY (OVERCOME STATIC AND NON-STATIC ERROR)
-     backButton.setOnClickListener(v -> {
-        HomePage activity = (HomePage) getActivity();
 
+
+       dog.setOnClickListener(v->{
+          HomePage activity = (HomePage) getActivity();
+            activity.replaceFragment(new catFragment());
         });
 
 
-
-
+    //USED TO END THE ACTIVITY
+    activity.finish();
 
 
 
