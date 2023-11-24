@@ -10,10 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ListenerRegistration;
 
 public class profileFragment extends Fragment {
+    FirebaseFirestore firestore;
+    private ListenerRegistration listenerRegistration;
+    TextView profileBiography;
+    TextView profileUniversity;
+    TextView profileUsername;
     Button updateUserButton;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +33,19 @@ public class profileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=  inflater.inflate(R.layout.fragment_profile, container, false);
 
-         updateUserButton= (Button)view.findViewById(R.id.updateUserDetailsButton);
+        //INITIALIZE FIRESTORE
+         firestore=FirebaseFirestore.getInstance();
 
+         //INITIALIZE OBJECTS AND VIEW COMPONENTS
+         updateUserButton= (Button)view.findViewById(R.id.updateUserDetailsButton);
+         profileUsername=(TextView)view.findViewById(R.id.profileNameUser);
+         profileUniversity=(TextView)view.findViewById(R.id.universityPP);
+         profileBiography=(TextView)view.findViewById(R.id.biographyPP);
+
+
+
+
+        //LISTENER BUTTONS
          updateUserButton.setOnClickListener(v->{
              FragmentManager fm = getActivity().getSupportFragmentManager();
              FragmentTransaction ft = fm.beginTransaction();
@@ -40,8 +59,9 @@ public class profileFragment extends Fragment {
               */
          });
 
-
-
+         getFireStoreData("userDetails","UserProfilePageDetails", "username",profileUsername);
+         getFireStoreData("userDetails", "UserProfilePageDetails", "university", profileUniversity);
+         getFireStoreData("userDetails", "UserProfilePageDetails", "biography", profileBiography);
 
 
 
@@ -50,5 +70,34 @@ public class profileFragment extends Fragment {
 
 
         return view;
+    }
+
+
+
+    public void getFireStoreData(String collection, String document, String FieldName, TextView textView){
+        listenerRegistration = firestore.collection(collection)
+                .document(document)
+                .addSnapshotListener((documentSnapshot, e) -> {
+                    if (e != null) {
+                        return; //IF THERE IS ERRORS
+                    }
+
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+
+                        String value = documentSnapshot.getString(FieldName);
+                        if (value != null) {
+                            textView.setText(value);
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Remove the Firestore snapshot listener when the activity is destroyed
+        if (listenerRegistration != null) {
+            listenerRegistration.remove();
+        }
     }
 }

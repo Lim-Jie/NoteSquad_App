@@ -72,6 +72,7 @@ public final class HomePage extends AppCompatActivity {
                 return true;
             }
             else if( R.id.item_3==no){ //ForumFragment Button 3
+                replaceFragment(new forumFragment());
                 return true;
             }
             else if( R.id.item_4==no){ //ProfileFragment Button 4
