@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".updateuserdetails">
+
+
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/userresgistrationbox"
+        android:fontFamily="@font/roboto_light"
+        android:hint="Username"
+        android:inputType="text"
+        android:paddingStart="30dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/University"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/userresgistrationbox"
+        android:fontFamily="@font/roboto_light"
+        android:hint="University"
+        android:inputType="text"
+        android:paddingStart="30dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Username"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <EditText
+        android:id="@+id/Biography"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/userresgistrationbox"
+        android:fontFamily="@font/roboto_light"
+        android:hint="Biography"
+        android:inputType="text"
+        android:paddingStart="30dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/University"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center"
+        android:text="Edit Profile"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <Button
+        android:id="@+id/updateButtonProfilePage"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="194dp"
+        android:layout_height="57dp"
+        android:text="Update"
+        android:textColor="@color/white"
+        app:backgroundTint="#20AEFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.718" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:checked="true"
+        android:fontFamily="@font/roboto_light"
+        android:text="Open to Connect Status"
+        android:textStyle="bold"
+        app:trackTint="#20AEFF"
+        app:layout_constraintBottom_toBottomOf="@id/updateButtonProfilePage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Biography"
+        app:layout_constraintVertical_bias="0.102" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

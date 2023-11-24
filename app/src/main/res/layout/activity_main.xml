@@ -59,14 +59,13 @@
 
     <Button
         style="@style/Widget.Material3.Button.ElevatedButton"
-
-
         android:id="@+id/LoginButton"
         android:layout_width="134dp"
         android:layout_height="49dp"
         android:background="@drawable/rounded_corner_rectangles"
         android:text="Login"
-        app:rippleColor="#ffffff"
+
+        app:rippleColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.158"

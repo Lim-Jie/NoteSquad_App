@@ -20,21 +20,26 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.Nullable;
 
 
 public final class HomePage extends AppCompatActivity {
-
     //change build.gradle to include buildFeatures{ viewBinding=true }
-    GoogleSignInOptions gso;
     private ActivityHomePageBinding binding;
+    GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+    FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+
+        firestore=FirebaseFirestore.getInstance();
 
 
         //SETS HOMEPAGE FRAGMENT AS DEFAULT FRAGMENT WHEN STARTING ACTIVITY (SAVEDINSTANCESTATE==NULL)
@@ -100,7 +105,7 @@ public final class HomePage extends AppCompatActivity {
 
 
 
-    private void replaceFragment(Fragment fragment){
+    public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.constraintLayoutFragment,fragment);
