@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.Firebase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,6 +24,7 @@ import java.util.Map;
 
 public class updateuserdetails extends Fragment {
     FirebaseFirestore firestore;
+    GoogleSignInAccount account;
     TextView username;
     TextView university;
     TextView biography;
@@ -74,7 +77,7 @@ public class updateuserdetails extends Fragment {
             userDetailsMap.put("biography",biographyString);
         }
 
-        DocumentReference documentRef = firestore.collection("userDetails").document("UserProfilePageDetails");
+        DocumentReference documentRef = firestore.collection("Users").document(getEmailObject());
 
 
         if (!userDetailsMap.isEmpty()) {
@@ -95,6 +98,13 @@ public class updateuserdetails extends Fragment {
 
 
         }
+
+    public String getEmailObject(){
+        account = GoogleSignIn.getLastSignedInAccount(getContext());
+        if(account!=null){
+            return account.getEmail();}
+        return null;
+    }
 
 
         public boolean checkEmptyHashmap(Map<String, Object> map) {

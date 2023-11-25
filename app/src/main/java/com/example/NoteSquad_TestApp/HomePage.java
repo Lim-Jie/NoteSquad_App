@@ -33,6 +33,7 @@ public final class HomePage extends AppCompatActivity {
     GoogleSignInClient gsc;
     FirebaseFirestore firestore;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +87,19 @@ public final class HomePage extends AppCompatActivity {
 
 
 
+
         }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        MainActivity.onHomepageStart();
+    }
+
+
+
+
 
 
 

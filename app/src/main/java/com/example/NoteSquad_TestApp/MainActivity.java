@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -17,17 +19,21 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.auth.User;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.MissingFormatArgumentException;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 
 public final class MainActivity extends AppCompatActivity {
@@ -37,6 +43,7 @@ public final class MainActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     GoogleSignInAccount account;
+    private static MainActivity instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +86,12 @@ public final class MainActivity extends AppCompatActivity {
                     .build();
 
             gsc= GoogleSignIn.getClient(this,gso);
-
             account = GoogleSignIn.getLastSignedInAccount(this);
+
             if(account!=null){
                 checkAndInitializeUserData();
                 openHomePage();
+
             }
 
             //GOOGLE SIGN IN BUTTON
@@ -99,11 +107,34 @@ public final class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //TO LET HOMEPAGE REFER A METHOD IN MAINACTIVITY
+        instance = this;
+    }
+
+
+
+    public static void onHomepageStart() {
+        if (instance != null) {
+            // Call the check() method or any other logic you want
+            instance.checkAndInitializeUserData();
+        }
+    }
+
+
+
+
     //CHECK IF THIS IS NEW USER, IF DATA.B EMPTY, INITIALIZE DATABASE TO ALL NULL EXCEPT USERNAME
-    private void checkAndInitializeUserData() {
-        DocumentReference userDocRef = firestore.collection("userDetails").document("UserProfilePageDetails");
+    public void checkAndInitializeUserData(){
+        DocumentReference userDocRef = firestore.collection("Users").document(getEmailObject());
 
         userDocRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -111,7 +142,7 @@ public final class MainActivity extends AppCompatActivity {
                 if (!document.exists()) {
                     // Document doesn't exist, initialize the user data
                     initializeUserData(userDocRef);
-                    SetDefaultUsername();
+                    setFirestoreUsername(getEmailObject().substring(0, getEmailObject().indexOf("@")));
                 }
             } else {
                 Log.e("MainActivity", "Error checking user data: ", task.getException());
@@ -126,6 +157,10 @@ public final class MainActivity extends AppCompatActivity {
         userData.put("password", null);
         userData.put("university", null);
         userData.put("biography", null);
+        userData.put("contributions",0);
+        userData.put("engagements",0);
+        userData.put("connections",0);
+        userData.put("email",getEmailObject());
 
         userDocRef.set(userData)
                 .addOnSuccessListener(aVoid -> Log.d("MainActivity", "User data initialized successfully"))
@@ -137,26 +172,18 @@ public final class MainActivity extends AppCompatActivity {
         account = GoogleSignIn.getLastSignedInAccount(this);
         if(account!=null){
             return account.getEmail();}
-
         return null;
     }
 
-    public void SetDefaultUsername(){
-        DocumentReference documentRef = firestore.collection("userDetails").document("UserProfilePageDetails");
-        Map<String,Object> map= new HashMap<>();
-        map.put("username",getEmailObject());
-            documentRef.update(map);
-        }
+
+
+
 
     private void SignIn(){
         Intent intent= gsc.getSignInIntent();
         startActivityForResult(intent,100);
     }
 
-
-    public String getEmail(){
-        return account.getEmail().toString();
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
@@ -170,9 +197,48 @@ public final class MainActivity extends AppCompatActivity {
                 openHomePage();
             }catch(ApiException e){
                 e.printStackTrace();
-                Toast.makeText(this,"Google Sign Up Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+
+    public void setFirestoreUsername(String username) {
+        checkIfUsernameExists(username);
+    }
+
+    private void checkIfUsernameExists(String username) {
+        firestore.collection("Users")
+                .whereEqualTo("username", username)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    if (querySnapshot.isEmpty()) {
+                        // No document with the username exists, add a new document
+                        addUsernameField(username);
+                    } else {
+                        // Document with the username exists, call the replaceWord method
+                        setFirestoreUsername(RandomUsernameGenerator(username));
+                    }
+                })
+                .addOnFailureListener(e -> {
+
+                });
+    }
+
+    private void addUsernameField(String username) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", username);
+
+        firestore.collection("Users")
+                .document(getEmailObject())
+                .set(data, SetOptions.merge()) // Use set with merge to add a new field
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("Firestore", "Document added successfully for username: " + username);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firestore", "Error adding document for username: " + username, e);
+                });
     }
 
 
@@ -180,7 +246,17 @@ public final class MainActivity extends AppCompatActivity {
 
 
 
+    public String RandomUsernameGenerator(String username){
 
+        StringBuilder sb=new StringBuilder();
+        Random random=new Random();
+        sb.append(username);
+        char randomChar = (char) ('A' + random.nextInt(26));
+        sb.append(randomChar);
+
+
+        return sb.toString();
+    }
 
 
 
@@ -208,3 +284,4 @@ public final class MainActivity extends AppCompatActivity {
         finish();
     }
 }
+
