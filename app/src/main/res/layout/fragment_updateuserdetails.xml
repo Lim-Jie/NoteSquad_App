@@ -39,7 +39,37 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Username"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintVertical_bias="0.211" />
+
+    <Button
+        android:id="@+id/updateButtonProfilePage"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="194dp"
+        android:layout_height="57dp"
+        android:text="Update"
+        android:textColor="@color/white"
+        app:backgroundTint="#20AEFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:checked="true"
+        android:fontFamily="@font/roboto_light"
+        android:text="Open to Connect Status"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/updateButtonProfilePage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Biography"
+        app:layout_constraintVertical_bias="0.104"
+        app:trackTint="#20AEFF" />
 
     <EditText
         android:id="@+id/Biography"
@@ -57,7 +87,7 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/University"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <TextView
         android:id="@+id/textView3"
@@ -74,34 +104,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.118" />
 
-    <Button
-        android:id="@+id/updateButtonProfilePage"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="194dp"
-        android:layout_height="57dp"
-        android:text="Update"
-        android:textColor="@color/white"
-        app:backgroundTint="#20AEFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
+    <TextView
+        android:id="@+id/UsernameExistErrorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:text=""
+        android:textColor="#FF2D00"
+        app:layout_constraintBottom_toTopOf="@+id/University"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
-
-    <com.google.android.material.materialswitch.MaterialSwitch
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:checked="true"
-        android:fontFamily="@font/roboto_light"
-        android:text="Open to Connect Status"
-        android:textStyle="bold"
-        app:trackTint="#20AEFF"
-        app:layout_constraintBottom_toBottomOf="@id/updateButtonProfilePage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Biography"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintTop_toBottomOf="@id/Username"
+        app:layout_constraintVertical_bias="0.461" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

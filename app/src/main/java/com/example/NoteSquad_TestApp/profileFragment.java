@@ -1,5 +1,6 @@
 package com.example.NoteSquad_TestApp;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -90,6 +91,9 @@ public class profileFragment extends Fragment {
          getFireStoreData("Users",getEmail(),"connections",profileConnections);
          getFireStoreData("Users",getEmail(),"email",profileEmail);
 
+
+         //UNDERLINE THE UNIVERSITY TEXTVIEW ENTIRELY
+        profileUniversity.setPaintFlags(profileUniversity.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
         return view;

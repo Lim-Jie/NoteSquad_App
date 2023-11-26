@@ -3,6 +3,10 @@ package com.example.NoteSquad_TestApp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +21,17 @@ import com.google.firebase.Firebase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.HashMap;
 import java.util.Map;
-
-
 public class updateuserdetails extends Fragment {
     FirebaseFirestore firestore;
     GoogleSignInAccount account;
     TextView username;
     TextView university;
     TextView biography;
+    TextView usernameExistErrorTextView;
 
 
     @Override
@@ -47,6 +51,8 @@ public class updateuserdetails extends Fragment {
         username =(TextView) view.findViewById(R.id.Username);
         university =(TextView) view.findViewById(R.id.University);
         biography =(TextView) view.findViewById(R.id.Biography);
+        usernameExistErrorTextView = (TextView)view.findViewById(R.id.UsernameExistErrorTextView);
+        String currentTypedUsername = username.getText().toString();
 
         //FIRESTORE INITIALIZATION
         firestore=FirebaseFirestore.getInstance();
@@ -56,6 +62,24 @@ public class updateuserdetails extends Fragment {
         updateUserDetailsButton.setOnClickListener(v->{
             collectText();
         });
+
+
+        //CHECK LIVE WHETHER UPDATED USER STRING VALUE EXISTS IN DATABASE CURRENTLY, IF NOT, ALLOW TO ADD
+        UsernameLiveChecker(currentTypedUsername);
+
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String currentTypedUsername = editable.toString();
+                UsernameLiveChecker(currentTypedUsername);
+            }
+        });
+
+
 
 
     return view;
@@ -80,7 +104,8 @@ public class updateuserdetails extends Fragment {
         DocumentReference documentRef = firestore.collection("Users").document(getEmailObject());
 
 
-        if (!userDetailsMap.isEmpty()) {
+
+        if (!userDetailsMap.isEmpty() && !usernameExistErrorTextView.getText().equals("Username already exists")) {
                 documentRef.update(filledHashMapValues(userDetailsMap))
                         .addOnSuccessListener(v -> {
                             Toast.makeText(getContext(), "Update Successful", Toast.LENGTH_SHORT).show();
@@ -91,7 +116,7 @@ public class updateuserdetails extends Fragment {
                         });
 
         } else {
-            Toast.makeText(getContext(), "All fields are empty, not updating", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Please fill in fields with valid values", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -99,12 +124,35 @@ public class updateuserdetails extends Fragment {
 
         }
 
+
+
+
     public String getEmailObject(){
         account = GoogleSignIn.getLastSignedInAccount(getContext());
         if(account!=null){
             return account.getEmail();}
         return null;
     }
+
+    public void UsernameLiveChecker(String currentTypedUsername){
+        firestore.collection("Users")
+                .whereEqualTo("username", currentTypedUsername)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    if (!querySnapshot.isEmpty()) {
+                        usernameExistErrorTextView.setText("Username already exists");
+                    }else {
+                        // Username does not exist
+                        usernameExistErrorTextView.setText("");
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Handle the failure, e.g., log the error
+                    Log.e("Firestore", "Error checking username existence", e);
+                });
+
+    }
+
 
 
         public boolean checkEmptyHashmap(Map<String, Object> map) {

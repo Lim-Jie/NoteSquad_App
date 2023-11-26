@@ -214,7 +214,7 @@ public final class MainActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(querySnapshot -> {
                     if (querySnapshot.isEmpty()) {
-                        // No document with the username exists, add a new document
+                        // NO SAME USERNAME EXISTS
                         addUsernameField(username);
                     } else {
                         // Document with the username exists, call the replaceWord method
