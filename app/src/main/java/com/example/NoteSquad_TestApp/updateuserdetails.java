@@ -1,9 +1,7 @@
 package com.example.NoteSquad_TestApp;
-
+import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,16 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.Firebase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.firestore.auth.User;
-
 import java.util.HashMap;
 import java.util.Map;
 public class updateuserdetails extends Fragment {
@@ -67,24 +59,28 @@ public class updateuserdetails extends Fragment {
         //CHECK LIVE WHETHER UPDATED USER STRING VALUE EXISTS IN DATABASE CURRENTLY, IF NOT, ALLOW TO ADD
         UsernameLiveChecker(currentTypedUsername);
 
+
+        //LISTEN TO CHANGES IN INSERTED USERNAME TEXTVALUES
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String currentTypedUsername = editable.toString();
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String currentTypedUsername = charSequence.toString();
                 UsernameLiveChecker(currentTypedUsername);
             }
+            @Override
+            public void afterTextChanged(Editable editable) {}
         });
+
+
+
 
 
 
 
     return view;
     }
-
 
 
     //POST USER DETAILS DATA AS HASHMAP INTO FIRESTORE
@@ -105,7 +101,8 @@ public class updateuserdetails extends Fragment {
 
 
 
-        if (!userDetailsMap.isEmpty() && !usernameExistErrorTextView.getText().equals("Username already exists")) {
+        if (!userDetailsMap.isEmpty() && !(usernameExistErrorTextView.getText().equals("Username already exists")) &&
+                !(usernameExistErrorTextView.getText().equals("Username should at least include 3 characters"))) {
                 documentRef.update(filledHashMapValues(userDetailsMap))
                         .addOnSuccessListener(v -> {
                             Toast.makeText(getContext(), "Update Successful", Toast.LENGTH_SHORT).show();
@@ -141,9 +138,13 @@ public class updateuserdetails extends Fragment {
                 .addOnSuccessListener(querySnapshot -> {
                     if (!querySnapshot.isEmpty()) {
                         usernameExistErrorTextView.setText("Username already exists");
-                    }else {
-                        // Username does not exist
+                    } else if (currentTypedUsername.equals("")) {
                         usernameExistErrorTextView.setText("");
+                    } else if (StringCheckIfNull(currentTypedUsername)) {
+                        usernameExistErrorTextView.setText("Username should at least include 3 characters");
+                    } else{
+                        usernameExistErrorTextView.setText("Username is valid");
+
                     }
                 })
                 .addOnFailureListener(e -> {
@@ -154,6 +155,13 @@ public class updateuserdetails extends Fragment {
     }
 
 
+
+        public boolean StringCheckIfNull(String value){
+            String Stringchecker = value.replaceAll("[^a-zA-Z0-9]", "");
+            if(!(Stringchecker.length()>=3)){
+                return true;}
+            return false;
+        }
 
         public boolean checkEmptyHashmap(Map<String, Object> map) {
             //  RETURNS TRUE IF THERE ARE EMPTY VALUES TO UPDATE INSTEAD OF SET FIRESTORE DATABASE
