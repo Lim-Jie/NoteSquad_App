@@ -87,7 +87,6 @@ public final class MainActivity extends AppCompatActivity {
 
             gsc= GoogleSignIn.getClient(this,gso);
             account = GoogleSignIn.getLastSignedInAccount(this);
-
             if(account!=null){
                 checkAndInitializeUserData();
                 openHomePage();
@@ -197,7 +196,7 @@ public final class MainActivity extends AppCompatActivity {
                 openHomePage();
             }catch(ApiException e){
                 e.printStackTrace();
-                Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Error logging in",Toast.LENGTH_SHORT).show();
             }
         }
     }
