@@ -35,10 +35,6 @@ public class homePageFragment extends Fragment {
     private FirebaseFirestore Firestore;
     ListView listView;
 
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,13 +61,6 @@ public class homePageFragment extends Fragment {
                 activity.SignOut();
             }
         });
-
-
-
-
-
-
-
 
 
 
