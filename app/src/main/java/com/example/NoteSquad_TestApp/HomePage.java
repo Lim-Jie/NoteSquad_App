@@ -1,28 +1,19 @@
 package com.example.NoteSquad_TestApp;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import com.example.NoteSquad_TestApp.databinding.ActivityHomePageBinding;
-import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
 import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.material.navigation.NavigationBarView;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.NoteSquad_TestApp.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -73,7 +64,7 @@ public final class HomePage extends AppCompatActivity {
                 return true;
             }
             else if( R.id.item_3==no){ //ForumFragment Button 3
-                replaceFragment(new forumFragment());
+                replaceFragment(new ForumFragment());
                 return true;
             }
             else if( R.id.item_4==no){ //ProfileFragment Button 4

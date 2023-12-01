@@ -130,7 +130,8 @@ public class profileFragment extends Fragment {
     public String getEmail(){
         account = GoogleSignIn.getLastSignedInAccount(getContext());
         if(account!=null){
-            return account.getEmail();}
+            return account.getEmail();
+        }
 
         return null;
     }
