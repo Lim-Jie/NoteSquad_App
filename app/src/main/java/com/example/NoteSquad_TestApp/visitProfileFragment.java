@@ -1,27 +1,17 @@
 package com.example.NoteSquad_TestApp;
-
-import static android.content.ContentValues.TAG;
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class visitProfileFragment extends Fragment {
-    Button connectButton;
+    private Button connectButton;
     private TextView profileBiography;
     private TextView profileUniversity;
     private TextView profileUsername;
