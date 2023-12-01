@@ -101,8 +101,7 @@ public class updateuserdetails extends Fragment {
 
 
 
-        if (!userDetailsMap.isEmpty() && !(usernameExistErrorTextView.getText().equals("Username already exists")) &&
-                !(usernameExistErrorTextView.getText().equals("Username should at least include 3 characters"))) {
+        if (!userDetailsMap.isEmpty() && (usernameExistErrorTextView.getText().equals("")|| usernameExistErrorTextView.getText().equals("Username is valid"))) {
                 documentRef.update(filledHashMapValues(userDetailsMap))
                         .addOnSuccessListener(v -> {
                             Toast.makeText(getContext(), "Update Successful", Toast.LENGTH_SHORT).show();
@@ -142,6 +141,8 @@ public class updateuserdetails extends Fragment {
                         usernameExistErrorTextView.setText("");
                     } else if (StringCheckIfNull(currentTypedUsername)) {
                         usernameExistErrorTextView.setText("Username should at least include 3 characters");
+                    } else if (currentTypedUsername.length()>13) {
+                        usernameExistErrorTextView.setText("13 character limit");
                     } else{
                         usernameExistErrorTextView.setText("Username is valid");
 

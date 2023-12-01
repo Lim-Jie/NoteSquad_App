@@ -101,7 +101,7 @@ public class profileFragment extends Fragment {
 
 
 
-    public void getFireStoreData(String collection, String document, String FieldName, TextView textView){
+    private void getFireStoreData(String collection, String document, String FieldName, TextView textView){
         listenerRegistration = firestore.collection(collection)
                 .document(document)
                 .addSnapshotListener((documentSnapshot, e) -> {

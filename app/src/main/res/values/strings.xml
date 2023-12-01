@@ -4,9 +4,8 @@
     <string name="notesharepage">NoteShare</string>
     <string name="forumpage">Forum</string>
     <string name="profilepage">Profile</string>
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
