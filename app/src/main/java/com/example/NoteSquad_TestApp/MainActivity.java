@@ -36,7 +36,7 @@ public final class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-            FirebaseApp.initializeApp(this);
+            FirebaseApp.initializeApp(MainActivity.this);
 
             firebaseAuth = FirebaseAuth.getInstance();
             firestore = FirebaseFirestore.getInstance();
@@ -75,6 +75,7 @@ public final class MainActivity extends AppCompatActivity {
             account = GoogleSignIn.getLastSignedInAccount(this);
             if(account!=null){
                 checkAndInitializeUserData();
+                checkConnectionDatabase();
                 openHomePage();
 
             }
@@ -84,16 +85,9 @@ public final class MainActivity extends AppCompatActivity {
                 SignIn();
             });
 
-
-
-
-
-
-
-
-
-
-
+            if(instance==null){
+                instance = this;
+            }
 
     }
 
@@ -102,7 +96,7 @@ public final class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //TO LET HOMEPAGE REFER A METHOD IN MAINACTIVITY
-        instance = this;
+
     }
 
 
@@ -111,6 +105,10 @@ public final class MainActivity extends AppCompatActivity {
         if (instance != null) {
             // Call the check() method or any other logic you want
             instance.checkAndInitializeUserData();
+            instance.checkConnectionDatabase();
+            Log.d("Instance", "Successful");
+        }else{
+            Log.e("Instance", "Unsuccessful");
         }
     }
 
@@ -241,6 +239,34 @@ public final class MainActivity extends AppCompatActivity {
 
 
         return sb.toString();
+    }
+
+
+    public void checkConnectionDatabase(){
+        DocumentReference userDocRef = firestore.collection("Connections").document(getEmailObject());
+
+        userDocRef.get().addOnCompleteListener(task->{
+            if(task.isSuccessful()){
+                DocumentSnapshot documentSnapshot= task.getResult();
+                if (documentSnapshot != null && !documentSnapshot.exists()){
+                    initializeConnectionsHashmap(userDocRef);
+                }
+
+            }else{
+                Log.e("MainActivity", "Error checking connection database", task.getException());
+            }
+
+        });
+    }
+
+    public void initializeConnectionsHashmap(DocumentReference userDocRef){
+        Map<String,Object> mapConnection = new HashMap<>();
+        mapConnection.put("UserExist",true);
+
+        userDocRef.set(mapConnection, SetOptions.merge())
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "User data initialized successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error initializing user data: ", e));
+
     }
 
 

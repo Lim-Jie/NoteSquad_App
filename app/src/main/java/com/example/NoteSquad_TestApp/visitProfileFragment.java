@@ -19,7 +19,6 @@ public class visitProfileFragment extends Fragment {
     private TextView profileEngagements;
     private TextView profileConnections;
     private TextView profileEmail;
-
     FirebaseFirestore Firestore;
     private ListenerRegistration listenerRegistration;
     private String Username;
@@ -68,7 +67,10 @@ public class visitProfileFragment extends Fragment {
 
 
 
+        connectButton.setOnClickListener(v->{
 
+
+        });
 
 
 
@@ -101,6 +103,10 @@ public class visitProfileFragment extends Fragment {
                         }
                     }
                 });
+    }
+
+    public void RequestToConnectToUser(){
+
     }
 
 
