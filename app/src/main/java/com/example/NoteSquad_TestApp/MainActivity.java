@@ -73,12 +73,16 @@ public final class MainActivity extends AppCompatActivity {
 
             gsc= GoogleSignIn.getClient(this,gso);
             account = GoogleSignIn.getLastSignedInAccount(this);
-            if(account!=null){
-                checkAndInitializeUserData();
-                checkConnectionDatabase();
-                openHomePage();
 
+            //IF ACCOUNT IS SIGNED IN, OPEN HOME PAGE
+            if(account!=null){
+                try{
+                    openHomePage();
+                }catch (Exception e){
+                    System.out.println(e);
+                }
             }
+
 
             //GOOGLE SIGN IN BUTTON
             googleimage.setOnClickListener(v->{
@@ -171,7 +175,7 @@ public final class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+/*
         if(requestCode==100){
             Task<GoogleSignInAccount> task= GoogleSignIn.getSignedInAccountFromIntent(data);
 
@@ -181,6 +185,26 @@ public final class MainActivity extends AppCompatActivity {
             }catch(ApiException e){
                 e.printStackTrace();
                 Toast.makeText(this,"Error logging in",Toast.LENGTH_SHORT).show();
+            }
+        }
+*/
+        if (requestCode == 100) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount googleSignInAccount = task.getResult(ApiException.class);
+                if (googleSignInAccount != null) {
+                    // Successful Google sign-in
+                    // Perform actions such as fetching user data and opening the home page
+                    checkAndInitializeUserData();
+                    checkConnectionDatabase();
+                    openHomePage();
+                } else {
+                    // Google sign-in failed
+                    Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT).show();
+                }
+            } catch (ApiException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -295,4 +319,7 @@ public final class MainActivity extends AppCompatActivity {
         finish();
     }
 }
+
+
+
 
