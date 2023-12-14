@@ -105,7 +105,11 @@ public class homePageFragment extends Fragment {
                     Log.d("EmailUser", "Email of user " + email);
                     // Call any other methods that need the email
                     if (getActivity() instanceof HomePage) {
-                        ((HomePage) getActivity()).replaceFragment(new visitProfileFragment(email));
+                        if(MainActivity.getEmailString().equals(email)){
+                            ((HomePage) getActivity()).replaceFragment(new profileFragment());
+                        }else{
+                            ((HomePage) getActivity()).replaceFragment(new visitProfileFragment(email, MainActivity.getEmailString()));
+                        }
                     }
                 }
             });

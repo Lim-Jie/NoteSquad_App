@@ -90,28 +90,6 @@ public final class HomePage extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -119,11 +97,6 @@ public final class HomePage extends AppCompatActivity {
         ft.commit();
 
     }
-
-
-
-
-
 
     public void SignOut() {
         gsc.signOut().addOnCompleteListener(v -> {

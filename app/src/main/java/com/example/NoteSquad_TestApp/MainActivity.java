@@ -14,6 +14,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -101,6 +102,10 @@ public final class MainActivity extends AppCompatActivity {
         super.onStart();
         //TO LET HOMEPAGE REFER A METHOD IN MAINACTIVITY
 
+    }
+
+    public static String getEmailString(){
+       return  instance.getEmailObject();
     }
 
 
@@ -229,7 +234,7 @@ public final class MainActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
-
+                    Log.e("Firestore", "Error checking checkIfUsernameExist method"+ e);
                 });
     }
 
@@ -269,11 +274,12 @@ public final class MainActivity extends AppCompatActivity {
     public void checkConnectionDatabase(){
         DocumentReference userDocRef = firestore.collection("Connections").document(getEmailObject());
 
-        userDocRef.get().addOnCompleteListener(task->{
+        userDocRef.collection("Network").document("Connection").get().addOnCompleteListener(task->{
             if(task.isSuccessful()){
                 DocumentSnapshot documentSnapshot= task.getResult();
-                if (documentSnapshot != null && !documentSnapshot.exists()){
+                if (!documentSnapshot.exists()){
                     initializeConnectionsHashmap(userDocRef);
+                    Log.d("Database Initialization", "Database has not been created yet");
                 }
 
             }else{
@@ -283,14 +289,29 @@ public final class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void initializeConnectionsHashmap(DocumentReference userDocRef){
-        Map<String,Object> mapConnection = new HashMap<>();
-        mapConnection.put("UserExist",true);
+    public void initializeConnectionsHashmap(DocumentReference userDocRef) {
+        CollectionReference networkCollection = userDocRef.collection("Network");
 
-        userDocRef.set(mapConnection, SetOptions.merge())
-                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "User data initialized successfully"))
-                .addOnFailureListener(e -> Log.e("MainActivity", "Error initializing user data: ", e));
+        // Add the "Invitation" document
+        networkCollection.document("Invitation")
+                .set(new HashMap<String, Object>())
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Invitation document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Invitation document: ", e));
 
+        // Add the "Connection" document
+        Map<String,Object> map= new HashMap<String, Object>();
+        map.put("UserExist",true);
+
+        networkCollection.document("Connection")
+                .set(map)
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Connection document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Connection document: ", e));
+
+        // Add the "Requests" document
+        networkCollection.document("Requested")
+                .set(new HashMap<String, Object>())
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Requests document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Requests document: ", e));
     }
 
 
