@@ -65,8 +65,6 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHol
                 @Override
                 public void onClick(View view) {
                     listener.onItemClick(forum);
-
-                    Toast.makeText(context, "Forum Clicked: " + forum.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

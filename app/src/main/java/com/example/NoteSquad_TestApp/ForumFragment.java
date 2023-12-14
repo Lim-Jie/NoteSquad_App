@@ -57,7 +57,12 @@ public class ForumFragment extends Fragment {
         adapter = new ForumAdapter(getContext(), new ArrayList<>(), new ForumAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Forum forum) {
-
+                if (getActivity() != null) {
+                    ForumDetailsFragment detailsFragment = ForumDetailsFragment.newInstance(forum);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.constraintLayoutFragment, detailsFragment);
+                    transaction.commit();
+                }
             }
         });
         forumRecView.setAdapter(adapter);
