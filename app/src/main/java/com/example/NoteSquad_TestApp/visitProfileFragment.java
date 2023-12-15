@@ -121,7 +121,7 @@ public class visitProfileFragment extends Fragment {
                     if(checkRequestExistBool){
 
                         RemoveRequest("Requested",CurrentUserEmail,EmailString);
-                        RemoveRequest("Invitation",CurrentUserEmail,EmailString);
+                        RemoveRequest("Invitation",EmailString,CurrentUserEmail);
 
                         ColorStateList colorStateList=ColorStateList.valueOf(Color.parseColor("#00BFFF"));
                         connectButton.setBackgroundTintList(colorStateList);
