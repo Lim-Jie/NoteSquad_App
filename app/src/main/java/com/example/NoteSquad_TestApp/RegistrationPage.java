@@ -1,4 +1,5 @@
 package com.example.NoteSquad_TestApp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -73,7 +74,11 @@ public final class RegistrationPage extends AppCompatActivity {
                     @Override
                     public void onCheckIfUsernameExist(boolean finishedOperation) {
                         if(finishedOperation){
-                            openHomePage();
+
+                           //TODO: Open The HomePage
+
+
+
                         }
                     }
                 });
@@ -113,6 +118,15 @@ public final class RegistrationPage extends AppCompatActivity {
                 Log.e("Firestore", "Error getting document: ", task.getException());
             }
         });
+
+    }
+
+
+
+
+
+
+//TODO:Is this an extra bracket?
     }
 
 
@@ -121,6 +135,7 @@ public final class RegistrationPage extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 
 
 
