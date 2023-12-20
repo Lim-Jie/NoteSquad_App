@@ -1,4 +1,5 @@
 package com.example.NoteSquad_TestApp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -73,7 +74,7 @@ public final class RegistrationPage extends AppCompatActivity {
                     @Override
                     public void onCheckIfUsernameExist(boolean finishedOperation) {
                         if(finishedOperation){
-                            openHomePage();
+                           //TODO: Open The HomePage
                         }
                     }
                 });
@@ -116,11 +117,7 @@ public final class RegistrationPage extends AppCompatActivity {
     }
 
 
-    public void openHomePage() {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-        finish();
-    }
+
 
 
 
