@@ -126,10 +126,6 @@ public final class RegistrationPage extends AppCompatActivity {
 
 
 
-//TODO:Is this an extra bracket?
-    }
-
-
     public void openHomePage() {
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
