@@ -74,7 +74,11 @@ public final class RegistrationPage extends AppCompatActivity {
                     @Override
                     public void onCheckIfUsernameExist(boolean finishedOperation) {
                         if(finishedOperation){
+
                            //TODO: Open The HomePage
+
+
+
                         }
                     }
                 });
@@ -114,9 +118,23 @@ public final class RegistrationPage extends AppCompatActivity {
                 Log.e("Firestore", "Error getting document: ", task.getException());
             }
         });
+
     }
 
 
+
+
+
+
+//TODO:Is this an extra bracket?
+    }
+
+
+    public void openHomePage() {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 

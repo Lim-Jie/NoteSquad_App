@@ -44,13 +44,16 @@ public final class HomePage extends AppCompatActivity {
                     .commit();
         }
 
+        if(currentUser==null){
 
-        //GOOGLE FIREBASE SETTINGS
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        gsc = GoogleSignIn.getClient(this, gso);
 
+        }else {
+            //GOOGLE FIREBASE SETTINGS
+            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+            gsc = GoogleSignIn.getClient(this, gso);
+        }
 
         //SWITCH FRAGMENT ON BOTTOM NAVIGATION BAR
         binding= ActivityHomePageBinding.inflate(getLayoutInflater());
