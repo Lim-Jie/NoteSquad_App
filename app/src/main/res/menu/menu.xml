@@ -10,17 +10,23 @@
         android:id="@+id/item_2"
         android:enabled="true"
         android:icon="@drawable/solarpennewsquareoutline"
-        android:title="@string/notesharepage"/>
+        android:title="Explore"/>
+
     <item
         android:id="@+id/item_3"
         android:enabled="true"
-        android:icon="@drawable/solarcloudfilelineduotone"
-        android:title="@string/forumpage"/>
+        android:icon="@drawable/solarpennewsquareoutline"
+        android:title="@string/notesharepage"/>
     <item
         android:id="@+id/item_4"
         android:enabled="true"
+        android:icon="@drawable/solarcloudfilelineduotone"
+        android:title="@string/forumpage"/>
+
+    <item
+        android:id="@+id/item_5"
+        android:enabled="true"
         android:icon="@drawable/solarcalendarsearchboldduotone"
         android:title="@string/profilepage"/>
-
 
 </menu>
