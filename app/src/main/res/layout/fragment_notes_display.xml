@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ImageView for displaying the image -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/placeholder_image" />
+
+    <RelativeLayout
+        android:id="@+id/descriptionOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="550dp"
+        android:background="#80000000"> <!-- Initially set to gone -->
+
+        <!-- TextView for displaying the description -->
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Your Description"
+            android:textColor="#ffffff"
+            android:textSize="18dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_outlined_flag_24"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="280dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_thumbs_up_down_24"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="310dp"
+            /><!-- Adjust the text color as needed -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_edit_note_24"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="340dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_share_24"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="365dp"
+            />
+    </RelativeLayout>
+
+</FrameLayout>

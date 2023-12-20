@@ -1,5 +1,6 @@
 package com.example.NoteSquad_TestApp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +26,17 @@ public class NotesRecycleViewAdapter extends RecyclerView.Adapter<NotesRecycleVi
         this.context=context;
     }
 
+    private OnImageClickListener onImageClickListener;
+
+    public void setOnImageClickListener(OnImageClickListener listener) {
+        this.onImageClickListener = listener;
+    }
+
+    public interface OnImageClickListener {
+        void onImageClick(String imageUrl, String description);
+    }
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,16 +45,27 @@ public class NotesRecycleViewAdapter extends RecyclerView.Adapter<NotesRecycleVi
         return holder;
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       holder.txtName.setText(notes.get(position).getName());
-       holder.txtEmail.setText(notes.get(position).getEmail());
-       holder.txtName.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+       holder.txtTitle.setText(notes.get(position).getNoteTitle());
+
+       holder.txtTitle.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Toast.makeText(context, notes.get(position).getName(), Toast.LENGTH_SHORT).show();
+               Toast.makeText(context, notes.get(position).getNoteTitle(), Toast.LENGTH_SHORT).show();
            }
        });
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onImageClickListener != null) {
+                    onImageClickListener.onImageClick(notes.get(position).getImageURL(), notes.get(position).getDescription());
+                }
+            }
+        });
+
+
         Glide.with(context).asBitmap().load(notes.get(position).getImageURL())
                 .into(holder.image);
     }
@@ -54,16 +76,17 @@ public class NotesRecycleViewAdapter extends RecyclerView.Adapter<NotesRecycleVi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtName,txtEmail;
+        private TextView txtTitle;
         private CardView parent;
         private ImageView image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtName=itemView.findViewById(R.id.textName);
+
             parent=itemView.findViewById(R.id.parent);
-            txtEmail=itemView.findViewById(R.id.textEmail);
+            txtTitle=itemView.findViewById(R.id.noteTitle);
             image=itemView.findViewById(R.id.image);
+
         }
     }
     public void setNotes(ArrayList<Notes> notes) {

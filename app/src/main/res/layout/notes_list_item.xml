@@ -10,39 +10,30 @@
     android:layout_margin="10dp">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/noteTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Contact Name"
-            android:textStyle="bold"
-            android:layout_marginTop="7dp">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/textEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textName"
-            android:text="Contact Email"
-            android:textStyle="italic"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="7dp"
-            android:layout_marginStart="5dp">
+            android:text="Note Title"
+            android:textStyle="italic">
 
         </TextView>
+
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/image"
-            android:layout_below="@+id/textEmail"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noteTitle"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitCenter"
             >
 
         </ImageView>

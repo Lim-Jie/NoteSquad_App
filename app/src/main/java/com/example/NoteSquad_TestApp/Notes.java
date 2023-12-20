@@ -1,32 +1,32 @@
 package com.example.NoteSquad_TestApp;
 
 public class Notes {
-    private String name;
-    private String email;
+    private String noteTitle;
+    private String description;
     private String imageURL;
     private  String subject;
 
-    public Notes(String name, String email, String imageURL,String subject) {
-        this.name = name;
-        this.email = email;
+    public Notes(String noteTitle, String description, String imageURL, String subject) {
+        this.noteTitle = noteTitle;
+        this.description = description;
         this.imageURL = imageURL;
-        this.subject=subject;
+        this.subject = subject;
     }
 
-    public String getName() {
-        return name;
+    public String getNoteTitle() {
+        return noteTitle;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNoteTitle(String noteTitle) {
+        this.noteTitle = noteTitle;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImageURL() {
@@ -37,12 +37,11 @@ public class Notes {
         this.imageURL = imageURL;
     }
 
-    @Override
-    public String toString() {
-        return "Notes{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", imageURL='" + imageURL + '\'' +
-                '}';
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }
