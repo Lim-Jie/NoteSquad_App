@@ -4,7 +4,16 @@
     <string name="notesharepage">NoteShare</string>
     <string name="forumpage">Forum</string>
     <string name="profilepage">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="FeynmanTechniqueDescription">
+        Explanation of a concept in simple terms as if teaching it to someone else to enhance understanding
+    </string>
+
+    <string name="ThreeSQRtechniqueDescription">
+        A problem-solving approach focusing on stating the problem, specifying the strategy, and summarizing the solution
+    </string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

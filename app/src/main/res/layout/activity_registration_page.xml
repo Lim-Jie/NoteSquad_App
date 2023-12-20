@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/PasswordRegistration"
         android:layout_width="285dp"
         android:layout_height="63dp"
         android:layout_marginStart="60dp"

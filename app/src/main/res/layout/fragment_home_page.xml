@@ -7,19 +7,265 @@
     tools:context=".homePageFragment"
     >
 
-
-    <Button
-        android:id="@+id/logoutButton"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Log out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
-    
+        app:layout_constraintStart_toStartOf="parent">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="500dp">
+
+               <Button
+                   android:id="@+id/logoutButton"
+                   style="@style/Widget.Material3.Button.ElevatedButton"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="80dp"
+                   android:layout_marginEnd="28dp"
+                   android:text="Log out"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0" />
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   android:layout_marginTop="150dp">
+                   <!--android:background="#CBDF90" -->
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toTopOf="parent"
+                       android:layout_marginTop="20dp"
+                       android:layout_marginBottom="15dp"
+                       android:paddingStart="30dp"
+                       android:textSize="30dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/black"
+                       android:text="Studying Techniques"
+                       android:fontFamily="@font/syne_regular"/>
+
+
+                   <HorizontalScrollView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="15dp"
+                       android:orientation="horizontal"
+                       android:contentDescription="Scrollbar for CardView Notes"
+                       >
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                           <!-- FIRST -->
+                          <LinearLayout
+                              android:layout_marginLeft="15dp"
+                              android:id="@+id/LinearLayoutStudy1"
+                              android:layout_width="350dp"
+                              android:layout_height="wrap_content"
+                              android:orientation="horizontal"
+                              android:background="@drawable/rounded_corner_rectangles"
+                              android:elevation="6dp"
+                              android:layout_marginTop="10dp"
+                              android:layout_marginBottom="15dp">
+
+                              <androidx.cardview.widget.CardView
+                                  android:alpha="0.85"
+                                  android:layout_width="150dp"
+                                  android:layout_height="150dp"
+                                  android:layout_margin="16dp"
+                                  app:cardBackgroundColor="#008025"
+                                  app:cardCornerRadius="30dp">
+
+                                  <ImageView
+                                      android:id="@+id/imageView"
+                                      android:layout_width="150dp"
+                                      android:layout_height="150dp"
+                                      android:scaleType="centerCrop"
+                                      android:src="@drawable/pomodorotechnique" />
+                              </androidx.cardview.widget.CardView>
+
+                              <LinearLayout
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginBottom="20dp"
+                                  android:orientation="vertical"
+                                  android:layout_marginTop="15dp">
+
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="30dp"
+                                      android:text="Pomodoro"
+                                      android:textSize="18dp"
+                                      android:layout_marginLeft="15dp"
+                                      android:textStyle="bold"
+                                      android:fontFamily="@font/poppins_semibold"/>
+
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="Involves breaking work into intervals, traditionally 25 minutes in length, separated by short breaks, aiming to enhance focus and productivity. "
+                                      android:textSize="16dp"
+                                      android:textColor="#A9A9A9"
+                                      android:fontFamily="@font/syne_regular"
+                                      android:layout_marginLeft="15dp"
+                                      android:textStyle="bold" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+                           <!-- SECOND -->
+                           <LinearLayout
+                               android:layout_marginLeft="15dp"
+                               android:id="@+id/LinearLayoutStudy2"
+                               android:layout_width="350dp"
+                               android:layout_height="wrap_content"
+                               android:orientation="horizontal"
+                               android:background="@drawable/rounded_corner_rectangles"
+                               android:elevation="6dp"
+                               android:layout_marginTop="10dp"
+                               android:layout_marginBottom="15dp">
+
+                               <androidx.cardview.widget.CardView
+                                   android:layout_width="150dp"
+                                   android:layout_height="150dp"
+                                   android:layout_margin="16dp"
+                                   app:cardBackgroundColor="#008025"
+                                   app:cardCornerRadius="30dp"
+                                   android:alpha="0.85">
+
+                                   <ImageView
+                                       android:id="@+id/imageView2"
+                                       android:layout_width="150dp"
+                                       android:layout_height="150dp"
+                                       android:scaleType="centerCrop"
+                                       android:src="@drawable/feynmantechnique2" />
+                               </androidx.cardview.widget.CardView>
+
+                               <LinearLayout
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginBottom="10dp"
+                                   android:orientation="vertical"
+                                   android:layout_marginTop="15dp">
+
+                                   <TextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="30dp"
+                                       android:text="Feynman"
+                                       android:textSize="18dp"
+                                       android:layout_marginLeft="15dp"
+                                       android:textStyle="bold"
+                                       android:fontFamily="@font/poppins_semibold"/>
+
+                                   <TextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:text="@string/FeynmanTechniqueDescription"                                       android:textSize="16dp"
+                                       android:textColor="#A9A9A9"
+                                       android:fontFamily="@font/syne_regular"
+                                       android:layout_marginLeft="15dp"
+                                       android:textStyle="bold" />
+                               </LinearLayout>
+                           </LinearLayout>
+
+                           <!-- THIRD -->
+                           <LinearLayout
+                               android:layout_marginLeft="15dp"
+                               android:id="@+id/LinearLayoutStudy3"
+                               android:layout_width="350dp"
+                               android:layout_height="wrap_content"
+                               android:orientation="horizontal"
+                               android:background="@drawable/rounded_corner_rectangles"
+                               android:elevation="6dp"
+                               android:layout_marginTop="10dp"
+                               android:layout_marginBottom="15dp">
+
+                               <androidx.cardview.widget.CardView
+
+                                   android:layout_width="150dp"
+                                   android:layout_height="150dp"
+                                   android:layout_margin="16dp"
+                                   app:cardBackgroundColor="#008025"
+                                   app:cardCornerRadius="30dp"
+                                   android:alpha="0.85">
+
+                                   <ImageView
+                                       android:id="@+id/imageView3"
+                                       android:layout_width="150dp"
+                                       android:layout_height="150dp"
+                                       android:scaleType="centerCrop"
+                                       android:src="@drawable/sq3rtechnique" />
+                               </androidx.cardview.widget.CardView>
+
+                               <LinearLayout
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginBottom="20dp"
+                                   android:orientation="vertical"
+                                   android:layout_marginTop="15dp">
+
+                                   <TextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="30dp"
+                                       android:text="3SQR"
+                                       android:textSize="18dp"
+                                       android:layout_marginLeft="15dp"
+                                       android:textStyle="bold"
+                                       android:fontFamily="@font/poppins_semibold"/>
+
+                                   <TextView
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:text="@string/ThreeSQRtechniqueDescription"
+                                       android:textSize="16dp"
+                                       android:textColor="#A9A9A9"
+                                       android:fontFamily="@font/syne_regular"
+                                       android:layout_marginLeft="15dp"
+                                       android:textStyle="bold" />
+                               </LinearLayout>
+                           </LinearLayout>
+
+
+                       </LinearLayout>
+                   </HorizontalScrollView>
+               </LinearLayout>
+
+               <Button
+                   android:id="@+id/editScheduleButton"
+                   style="@style/Widget.Material3.Button.ElevatedButton"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="580dp"
+                   android:layout_marginEnd="28dp"
+                   android:textSize="16dp"
+                   android:fontFamily="@font/poppins_semibold"
+                   android:text="Add a schedule"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+
+
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+
 
 
 
@@ -34,11 +280,7 @@
             android:contentDescription="Scroll Search Values"
             app:layout_behavior="@string/searchbar_scrolling_view_behavior">
 
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="100dp"/>
+
 
             <!-- Screen content goes here. -->
         </androidx.core.widget.NestedScrollView>
@@ -56,9 +298,16 @@
         <com.google.android.material.search.SearchView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="wrap_content"
             android:hint="Search"
             app:layout_anchor="@id/search_bar">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="100dp"/>
+
             <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->
         </com.google.android.material.search.SearchView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
