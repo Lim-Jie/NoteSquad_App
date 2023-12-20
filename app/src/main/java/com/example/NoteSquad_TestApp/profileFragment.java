@@ -83,7 +83,6 @@ public class profileFragment extends Fragment {
 
 
          //UNDERLINE THE UNIVERSITY TEXTVIEW ENTIRELY
-        profileUniversity.setPaintFlags(profileUniversity.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
         return view;

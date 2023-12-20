@@ -124,6 +124,7 @@ public final class MainActivity extends AppCompatActivity {
 
 
 
+
     //CHECK IF THIS IS NEW USER, IF DATA.B EMPTY, INITIALIZE DATABASE TO ALL NULL EXCEPT USERNAME
     public void checkAndInitializeUserData(){
         DocumentReference userDocRef = firestore.collection("Users").document(getEmailObject());

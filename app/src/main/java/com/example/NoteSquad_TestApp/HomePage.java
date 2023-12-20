@@ -9,6 +9,8 @@ import com.example.NoteSquad_TestApp.databinding.ActivityHomePageBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,8 +29,11 @@ public final class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-
+        //INSTANTIATE THE FIRESTORE DATABASE
         firestore=FirebaseFirestore.getInstance();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
 
 
         //SETS HOMEPAGE FRAGMENT AS DEFAULT FRAGMENT WHEN STARTING ACTIVITY (SAVEDINSTANCESTATE==NULL)
@@ -39,13 +44,16 @@ public final class HomePage extends AppCompatActivity {
                     .commit();
         }
 
+        if(currentUser==null){
 
-        //GOOGLE FIREBASE SETTINGS
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        gsc = GoogleSignIn.getClient(this, gso);
 
+        }else {
+            //GOOGLE FIREBASE SETTINGS
+            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+            gsc = GoogleSignIn.getClient(this, gso);
+        }
 
         //SWITCH FRAGMENT ON BOTTOM NAVIGATION BAR
         binding= ActivityHomePageBinding.inflate(getLayoutInflater());
@@ -98,7 +106,7 @@ public final class HomePage extends AppCompatActivity {
 
     }
 
-    public void SignOut() {
+    public void GoogleSignOut() {
         gsc.signOut().addOnCompleteListener(v -> {
             finish();
             startActivity(new Intent(this, MainActivity.class));

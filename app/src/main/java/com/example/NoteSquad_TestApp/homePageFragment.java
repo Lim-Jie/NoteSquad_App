@@ -26,11 +26,13 @@ import java.util.Map;
 
 public class homePageFragment extends Fragment {
     Button logoutButton;
+    Button EditScheduleButton;
     private SearchBar searchBar;
     private SearchView searchView;
     private FirebaseFirestore Firestore;
     private ListView listView;
     private String selectedUsername;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,13 +51,22 @@ public class homePageFragment extends Fragment {
         //BUTTON OBJECTS
          logoutButton = (Button) view.findViewById(R.id.logoutButton);
          listView = view.findViewById(R.id.listView);
+         EditScheduleButton = view.findViewById(R.id.editScheduleButton);
+
+         //OPEN EDIT SCHEDULE BUTTON
+         EditScheduleButton.setOnClickListener(v->{
+             HomePage activity = (HomePage) getActivity();
+             if(activity!=null){
+                 activity.replaceFragment(new studyScheduleUploadFragment());
+             }
+         });
 
 
         //OPEN ACTIVITY
         logoutButton.setOnClickListener(v -> {
             HomePage activity= (HomePage) getActivity();
             if(activity!=null){
-                activity.SignOut();
+                activity.GoogleSignOut();
             }
         });
 
