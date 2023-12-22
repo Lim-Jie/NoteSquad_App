@@ -17,10 +17,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.util.Listener;
 
 import java.time.Month;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +44,7 @@ public class studyScheduleUploadFragment extends Fragment {
     RadioButton radioButtonOnline;
     Listener listenerSchedule;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState); }
 
@@ -60,23 +64,24 @@ public class studyScheduleUploadFragment extends Fragment {
         timePicker = (TimePicker) view.findViewById(R.id.timePicker);
         calendarView = (CalendarView) view.findViewById(R.id.calendarView);
         SubmitSchedule = (Button)view.findViewById(R.id.SubmitSchedule);
-        radioGroup = (RadioGroup) view.findViewById(R.id.RadioGroupStudySchedule);
-        radioButtonPhysical = (RadioButton) view.findViewById(R.id.radioButtonPhysical);
-        radioButtonOnline = (RadioButton) view.findViewById(R.id.radioButtonOnline);
 
-
-
-        //SET THE RADIOBUTTON TO TEXT DEPENDING ON WHICH SELECTED
-        if(radioButtonPhysical.isSelected()){
-            StudyMode= "Physical";
-        }else if(radioButtonOnline.isSelected()){
-            StudyMode= "Online";
-        }
 
         SubmitSchedule.setOnClickListener(v->{
             SendToFireStore();
         });
 
+
+        //RADIO BUTTON AND GROUP SETUP
+        radioGroup = (RadioGroup) view.findViewById(R.id.RadioGroupStudySchedule);
+
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            // Use the lambda parameters (group and checkedId) instead of the class-level variable selectedRadioButtonId
+            if (checkedId == R.id.radioButtonOnline) {
+                StudyMode = "Online";
+            } else if (checkedId == R.id.radioButtonPhysical) {
+                StudyMode = "Physical";
+            }
+        });
 
         /*
         *  if(ValidateForm()){
@@ -85,7 +90,11 @@ public class studyScheduleUploadFragment extends Fragment {
             }else{
                 Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
             }
-*/
+        */
+
+
+
+
 
 
 
@@ -98,9 +107,13 @@ public class studyScheduleUploadFragment extends Fragment {
     }
 
 
-
-    public Map<String, Object> LoadIntoHashmap() {
+    public interface LoadIntoHashmapCallback{void OnLoadIntoHashmap(Map<String, Object> hashmap);}
+    public void LoadIntoHashmap(LoadIntoHashmapCallback callback) {
         Map<String, Object> hashmap = new HashMap<>();
+
+
+        //SETTING THE RADIOBUTTON INTO TEXT
+
 
         // Assuming subject, description, Venue, and StudyMode are TextViews or similar
         String subjectText = subject.getText().toString().trim();
@@ -112,19 +125,32 @@ public class studyScheduleUploadFragment extends Fragment {
         int minute = timePicker.getMinute();
 
         //GET DATE OF SCHEDULE
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(calendarView.getDate()); // Use the selected date from the calendarView
+
+        // Set the selected hour and minute to the calendar
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minute);
+
+        // Convert calendar to Date and then to a timestamp
+        Date date = calendar.getTime();
+        Timestamp timestamp = new Timestamp(date);
+
+        //GET DATE OF SCHEDULE
         hashmap.put("Subject", subjectText);
         hashmap.put("Description", descriptionText);
         hashmap.put("Venue", venueText);
-        hashmap.put("Time", (hour+ " " + minute));
+        hashmap.put("timestampField", timestamp);
         hashmap.put("Study-mode", StudyMode);
         hashmap.put("Author", CurrentUserEmail);
 
-        return hashmap;
+        callback.OnLoadIntoHashmap(hashmap);
+
+        //TODO:Fix timestamp on schedule page
     }
 
 
     public void UploadHashmapToDatabase(Map <String, Object> map){
-
 
         Firestore.collection("ScheduleList")
                 .document()
@@ -136,27 +162,15 @@ public class studyScheduleUploadFragment extends Fragment {
                 .addOnFailureListener(e->{
                     Log.e("Study-Schedule","Error in uploading Studying schedule", e);
                 });
-
     }
 
     public void SendToFireStore(){
-        Map<String, Object> map= LoadIntoHashmap();
-        Log.d("Study-Schedule", "Value of hashmap is :"+ map);
-
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        LoadIntoHashmap(new LoadIntoHashmapCallback() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String date= String.valueOf(dayOfMonth);
-                String Month = String.valueOf(month);
-                String Year = String.valueOf(year);
-                map.put("Date", date+ ""+ Month+" "+ Year);
-                Log.d("DateValue", date+""+Month+" "+ Year);
-
-                UploadHashmapToDatabase(map);
+            public void OnLoadIntoHashmap(Map<String, Object> hashmap) {
+                UploadHashmapToDatabase(hashmap);
             }
         });
-
-
     }
 
     public boolean ValidateForm(){

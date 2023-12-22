@@ -240,19 +240,52 @@
                    </HorizontalScrollView>
                </LinearLayout>
 
-               <Button
-                   android:id="@+id/editScheduleButton"
-                   style="@style/Widget.Material3.Button.ElevatedButton"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginTop="580dp"
-                   android:layout_marginEnd="28dp"
-                   android:textSize="16dp"
-                   android:fontFamily="@font/poppins_semibold"
-                   android:text="Add a schedule"
-                   app:layout_constraintBottom_toBottomOf="parent"
-                   app:layout_constraintEnd_toEndOf="parent"
-                   app:layout_constraintTop_toTopOf="parent"/>
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:layout_marginTop="500dp">
+
+                   <Button
+                       android:id="@+id/editScheduleButton"
+                       style="@style/Widget.Material3.Button.ElevatedButton"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="16dp"
+                       android:fontFamily="@font/poppins_semibold"
+                       android:text="Add a schedule"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="700dp"
+                       android:layout_marginTop="20dp"
+                       android:paddingLeft="10dp"
+                       android:paddingRight="10dp">
+
+                       <ListView
+                           android:id="@+id/ScheduleListView"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                       </ListView>
+                   </LinearLayout>
+
+               </LinearLayout>
+
+
+
+
+
+
+
 
 
 
@@ -303,7 +336,7 @@
             app:layout_anchor="@id/search_bar">
 
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/SearchListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="100dp"/>
