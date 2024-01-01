@@ -44,10 +44,6 @@ public class AddForumFragment extends Fragment {
 
                 if (!title.isEmpty() && !description.isEmpty()) {
                     addForumToFirebase(title, description);
-
-                    if (getActivity() != null) {
-                        getActivity().getSupportFragmentManager().popBackStack();
-                    }
                 }
             }
         });
@@ -69,17 +65,22 @@ public class AddForumFragment extends Fragment {
 
                                 String username = (String) documentSnapshot.get("username");
 
+
                                 Map<String, Object> forumData = new HashMap<>();
                                 forumData.put("title", title);
                                 forumData.put("description", description);
                                 forumData.put("userName", username);
                                 forumData.put("timestamp", FieldValue.serverTimestamp());
+                                forumData.put("likes", 0);
 
                                 db.collection("Forums")
                                         .add(forumData)
                                         .addOnSuccessListener(documentReference -> {
                                             if (getContext() != null) {
                                                 Toast.makeText(getContext(), "Forum post added", Toast.LENGTH_SHORT).show();
+                                            }
+                                            if (getActivity() != null) {
+                                                getActivity().getSupportFragmentManager().popBackStack();
                                             }
                                         })
                                         .addOnFailureListener(e -> {

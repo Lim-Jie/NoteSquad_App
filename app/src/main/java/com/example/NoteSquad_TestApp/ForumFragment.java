@@ -62,6 +62,7 @@ public class ForumFragment extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.constraintLayoutFragment, detailsFragment);
                     transaction.commit();
+                    transaction.addToBackStack(null);
                 }
             }
         });
@@ -82,6 +83,7 @@ public class ForumFragment extends Fragment {
 
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Forum forum = new Forum(document.getData());
+                        forum.setForumId(document.getId());
                         forumList.add(forum);
                     }
 
