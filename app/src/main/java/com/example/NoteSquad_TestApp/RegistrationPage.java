@@ -74,10 +74,7 @@ public final class RegistrationPage extends AppCompatActivity {
                     @Override
                     public void onCheckIfUsernameExist(boolean finishedOperation) {
                         if(finishedOperation){
-
                            //TODO: Open The HomePage
-
-
 
                         }
                     }
@@ -118,10 +115,7 @@ public final class RegistrationPage extends AppCompatActivity {
                 Log.e("Firestore", "Error getting document: ", task.getException());
             }
         });
-
     }
-
-
 
 
 
@@ -131,8 +125,6 @@ public final class RegistrationPage extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-
 
 
     public void openLoginPage(){

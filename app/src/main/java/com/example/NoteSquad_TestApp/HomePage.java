@@ -220,6 +220,18 @@ if (homefragment != null) {
 
 
 
+
+________________________________________________________________________
+Inside build.gradle app file set
+
+buildFeatures{
+viewBinding = true
+}
+
+
+
+
+
 IMPORTANT FOR EXAMS SO FAR, START ACTIVITY(INTENT), FRAGMENT, BUTTON, EVENT LISTENERS, ACTIVITY BINDING
 */
 

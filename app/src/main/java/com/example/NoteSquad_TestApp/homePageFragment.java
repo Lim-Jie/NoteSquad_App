@@ -13,14 +13,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import com.google.android.material.search.SearchBar;
 import com.google.android.material.search.SearchView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -30,8 +37,12 @@ public class homePageFragment extends Fragment {
     private SearchBar searchBar;
     private SearchView searchView;
     private FirebaseFirestore Firestore;
-    private ListView listView;
+    private ListView StudySchedulelistView;
     private String selectedUsername;
+    private ListView listView;
+    List <Map<String,Object>> DataList = new ArrayList<>();
+
+
 
 
     @Override
@@ -50,7 +61,8 @@ public class homePageFragment extends Fragment {
 
         //BUTTON OBJECTS
          logoutButton = (Button) view.findViewById(R.id.logoutButton);
-         listView = view.findViewById(R.id.listView);
+         listView = view.findViewById(R.id.SearchListView);
+
          EditScheduleButton = view.findViewById(R.id.editScheduleButton);
 
          //OPEN EDIT SCHEDULE BUTTON
@@ -89,22 +101,6 @@ public class homePageFragment extends Fragment {
                         }
                     });
 
-        /*
-        listView.setOnItemClickListener((AdapterView<?> adapterView, View clickedView, int position, long id) -> {
-            selectedUsername = (String) adapterView.getItemAtPosition(position);
-            Log.d("SelectedUsername", "Username: " + selectedUsername);
-            Log.d("EmailUser","Email of user"+ findEmailusingUsername(selectedUsername));
-            //PASSED METHODS
-
-
-            if (getActivity() instanceof HomePage) {
-                ((HomePage) getActivity()).replaceFragment(new visitProfileFragment(findEmailusingUsername(selectedUsername)));
-            }
-
-
-
-        });
-        */
 
         listView.setOnItemClickListener((AdapterView<?> adapterView, View clickedView, int position, long id) -> {
             selectedUsername = (String) adapterView.getItemAtPosition(position);
@@ -128,6 +124,35 @@ public class homePageFragment extends Fragment {
 
 
 
+       
+
+
+        //SETTING LISTVIEW FOR STUDY SCHEDULE FOR HOMEPAGE
+        StudySchedulelistView = (ListView) view.findViewById(R.id.ScheduleListView);
+        handleQueryResults(new HandleQueryResultsCallback() {
+            @Override
+            public void onHandleQueryResults(List<Map<String, Object>> dataList) {
+                String[] from = {"Subject","Description", "Venue","timestampField","Author","Study-Mode"};
+                int[] to = {R.id.schedule_title, R.id.schedule_description,R.id.schedule_venue,R.id.Schedule_date ,R.id.Schedule_Author, R.id.Study_Mode};
+                SimpleAdapter adapter = new SimpleAdapter(
+                        getContext(),
+                        dataList,
+                        R.layout.schedule_list_item,
+                        from,
+                        to
+                );
+
+
+
+
+                        ;
+                Log.d("Study-Schedule", "Successfully ran handleQueryResults()");
+                Log.d("Study-Schedule", "Hashmap:"+dataList);
+
+                StudySchedulelistView.setAdapter(adapter);
+            }
+        });
+
 
 
 
@@ -141,6 +166,66 @@ public class homePageFragment extends Fragment {
     public interface OnEmailFoundListener {
         void onEmailFound(String email);
     }
+
+
+
+
+    private interface HandleQueryResultsCallback { void onHandleQueryResults(List<Map<String, Object>> dataList);}
+    private void handleQueryResults(HandleQueryResultsCallback callback) {
+        // Query the latest 5 documents
+        Query query = Firestore.collection("ScheduleList").orderBy("timestampField", Query.Direction.DESCENDING).limit(5);
+
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                List<Map<String, Object>> dataList = new ArrayList<>();
+
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Map<String, Object> data = document.getData();
+                    try {
+                        dataList.add(ChangeDocumentDate(data));
+
+
+                    } catch (Exception e) {
+                        Log.e("Study-Schedule", "Can't add hashmap to list", e);
+                    }
+                }
+                // Call the callback with the result
+                callback.onHandleQueryResults(dataList);
+                Log.d("Study-Schedule", "Successfully sent hashamp to handleQueryResults()");
+            } else {
+                Exception exception = task.getException();
+                if (exception != null) {
+                    Log.e("Study-Schedule", "Error in handleQueryResults", exception);
+                }
+            }
+        });
+    }
+
+
+    public Map<String, Object> ChangeDocumentDate(Map <String,Object> map){
+
+        for(Map.Entry<String,Object> iterate: map.entrySet()){
+            String keyName= iterate.getKey();
+
+            if(keyName.equals("timestampField")){
+                Object keyValues = iterate.getValue();
+
+                if (keyValues instanceof Timestamp) {
+                    Timestamp timestamp = (Timestamp) keyValues;
+                    Date date = timestamp.toDate();
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+                    String formattedDate = dateFormat.format(date);
+                    map.replace("timestampField",formattedDate);
+                    return map;
+                }
+            }
+        }
+    return map;
+    }
+
+
+
 
     public void findEmailusingUsername(String value, OnEmailFoundListener listener) {
         CollectionReference usersRef = Firestore.collection("Users");
@@ -187,6 +272,7 @@ public class homePageFragment extends Fragment {
                     Map<String, Object> userData = document.getData();
                     searchResults.add(userData);
                 }
+                Log.d("PerformSearch", "Successfully performSearch");
 
                 updateSearchResultUI(searchResults, view);
 

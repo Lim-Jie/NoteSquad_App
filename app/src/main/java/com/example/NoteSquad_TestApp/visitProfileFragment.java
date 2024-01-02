@@ -279,6 +279,7 @@ public class visitProfileFragment extends Fragment {
                                AddOrMinusVariablesUserCollection('-',"connections",UserEmail);
 
 
+
                                // TODO:Minus connections value after every unfollow connection
 
                             })
