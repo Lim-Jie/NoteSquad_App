@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
 import com.google.android.material.search.SearchBar;
 import com.google.android.material.search.SearchView;
 import com.google.firebase.Timestamp;
@@ -24,7 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -142,6 +140,32 @@ public class homePageFragment extends Fragment {
 
 
 
+        //SETTING LISTVIEW FOR STUDY SCHEDULE FOR HOMEPAGE
+        StudySchedulelistView = (ListView) view.findViewById(R.id.ScheduleListView);
+        handleQueryResults(new HandleQueryResultsCallback() {
+            @Override
+            public void onHandleQueryResults(List<Map<String, Object>> dataList) {
+                String[] from = {"Subject","Description", "Venue","timestampField","Author","Study-Mode"};
+                int[] to = {R.id.schedule_title, R.id.schedule_description,R.id.schedule_venue,R.id.Schedule_date ,R.id.Schedule_Author, R.id.Study_Mode};
+                SimpleAdapter adapter = new SimpleAdapter(
+                        getContext(),
+                        dataList,
+                        R.layout.schedule_list_item,
+                        from,
+                        to
+                );
+
+
+
+
+                        ;
+                Log.d("Study-Schedule", "Successfully ran handleQueryResults()");
+                Log.d("Study-Schedule", "Hashmap:"+dataList);
+
+                StudySchedulelistView.setAdapter(adapter);
+            }
+        });
+
                         ;
                 Log.d("Study-Schedule", "Successfully ran handleQueryResults()");
                 Log.d("Study-Schedule", "Hashmap:"+dataList);
@@ -223,6 +247,7 @@ public class homePageFragment extends Fragment {
 
 
 
+
     public void findEmailusingUsername(String value, OnEmailFoundListener listener) {
         CollectionReference usersRef = Firestore.collection("Users");
         Query query = usersRef.whereEqualTo("username", value);
@@ -269,6 +294,7 @@ public class homePageFragment extends Fragment {
                     searchResults.add(userData);
                 }
                 Log.d("PerformSearch", "Successfully performSearch");
+
                 updateSearchResultUI(searchResults, view);
 
             } else {

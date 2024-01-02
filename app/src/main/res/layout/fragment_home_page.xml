@@ -170,7 +170,8 @@
                                    <TextView
                                        android:layout_width="wrap_content"
                                        android:layout_height="wrap_content"
-                                       android:text="@string/FeynmanTechniqueDescription"                                       android:textSize="16dp"
+                                       android:text="@string/FeynmanTechniqueDescription"                                       
+                                       android:textSize="16dp"
                                        android:textColor="#A9A9A9"
                                        android:fontFamily="@font/syne_regular"
                                        android:layout_marginLeft="15dp"
@@ -251,6 +252,7 @@
                    android:layout_marginTop="500dp">
 
 
+
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="1000dp"
@@ -288,6 +290,7 @@
                        </LinearLayout>
 
 
+
                        <ListView
                            android:id="@+id/ScheduleListView"
                            android:layout_width="match_parent"
@@ -296,6 +299,7 @@
                    </LinearLayout>
 
                </LinearLayout>
+
 
 
 
