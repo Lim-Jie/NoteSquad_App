@@ -170,7 +170,8 @@
                                    <TextView
                                        android:layout_width="wrap_content"
                                        android:layout_height="wrap_content"
-                                       android:text="@string/FeynmanTechniqueDescription"                                       android:textSize="16dp"
+                                       android:text="@string/FeynmanTechniqueDescription"                                       
+                                       android:textSize="16dp"
                                        android:textColor="#A9A9A9"
                                        android:fontFamily="@font/syne_regular"
                                        android:layout_marginLeft="15dp"
@@ -279,6 +280,7 @@
                    </LinearLayout>
 
                </LinearLayout>
+
 
 
 

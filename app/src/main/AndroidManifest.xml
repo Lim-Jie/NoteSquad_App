@@ -18,7 +18,7 @@
 
         <activity
             android:name=".RegistrationPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".HomePage"
             android:exported="true"/> <!--Removed unecessary intent filters -->

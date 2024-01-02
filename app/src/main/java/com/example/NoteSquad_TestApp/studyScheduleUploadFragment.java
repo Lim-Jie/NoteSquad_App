@@ -16,8 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import com.google.firebase.Timestamp;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.util.Listener;
 
@@ -64,6 +64,11 @@ public class studyScheduleUploadFragment extends Fragment {
         timePicker = (TimePicker) view.findViewById(R.id.timePicker);
         calendarView = (CalendarView) view.findViewById(R.id.calendarView);
         SubmitSchedule = (Button)view.findViewById(R.id.SubmitSchedule);
+        radioGroup = (RadioGroup) view.findViewById(R.id.RadioGroupStudySchedule);
+        radioButtonPhysical = (RadioButton) view.findViewById(R.id.radioButtonPhysical);
+        radioButtonOnline = (RadioButton) view.findViewById(R.id.radioButtonOnline);
+
+
 
 
         SubmitSchedule.setOnClickListener(v->{
@@ -83,18 +88,8 @@ public class studyScheduleUploadFragment extends Fragment {
             }
         });
 
-        /*
-        *  if(ValidateForm()){
-                UploadHashmapToDatabase();
 
-            }else{
-                Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            }
-        */
-
-
-
-
+        
 
 
 
@@ -110,10 +105,6 @@ public class studyScheduleUploadFragment extends Fragment {
     public interface LoadIntoHashmapCallback{void OnLoadIntoHashmap(Map<String, Object> hashmap);}
     public void LoadIntoHashmap(LoadIntoHashmapCallback callback) {
         Map<String, Object> hashmap = new HashMap<>();
-
-
-        //SETTING THE RADIOBUTTON INTO TEXT
-
 
         // Assuming subject, description, Venue, and StudyMode are TextViews or similar
         String subjectText = subject.getText().toString().trim();
@@ -146,7 +137,7 @@ public class studyScheduleUploadFragment extends Fragment {
 
         callback.OnLoadIntoHashmap(hashmap);
 
-        //TODO:Fix timestamp on schedule page
+
     }
 
 
@@ -162,6 +153,7 @@ public class studyScheduleUploadFragment extends Fragment {
                 .addOnFailureListener(e->{
                     Log.e("Study-Schedule","Error in uploading Studying schedule", e);
                 });
+
     }
 
     public void SendToFireStore(){
@@ -171,6 +163,7 @@ public class studyScheduleUploadFragment extends Fragment {
                 UploadHashmapToDatabase(hashmap);
             }
         });
+
     }
 
     public boolean ValidateForm(){

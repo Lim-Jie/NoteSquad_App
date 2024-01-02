@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
 import com.google.android.material.search.SearchBar;
 import com.google.android.material.search.SearchView;
 import com.google.firebase.Timestamp;
@@ -24,7 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,6 +44,7 @@ public class homePageFragment extends Fragment {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +62,7 @@ public class homePageFragment extends Fragment {
         //BUTTON OBJECTS
          logoutButton = (Button) view.findViewById(R.id.logoutButton);
          listView = view.findViewById(R.id.SearchListView);
+
          EditScheduleButton = view.findViewById(R.id.editScheduleButton);
 
          //OPEN EDIT SCHEDULE BUTTON
@@ -124,6 +124,8 @@ public class homePageFragment extends Fragment {
 
 
 
+       
+
 
         //SETTING LISTVIEW FOR STUDY SCHEDULE FOR HOMEPAGE
         StudySchedulelistView = (ListView) view.findViewById(R.id.ScheduleListView);
@@ -139,6 +141,7 @@ public class homePageFragment extends Fragment {
                         from,
                         to
                 );
+
 
 
 
@@ -223,6 +226,7 @@ public class homePageFragment extends Fragment {
 
 
 
+
     public void findEmailusingUsername(String value, OnEmailFoundListener listener) {
         CollectionReference usersRef = Firestore.collection("Users");
         Query query = usersRef.whereEqualTo("username", value);
@@ -269,6 +273,7 @@ public class homePageFragment extends Fragment {
                     searchResults.add(userData);
                 }
                 Log.d("PerformSearch", "Successfully performSearch");
+
                 updateSearchResultUI(searchResults, view);
 
             } else {
