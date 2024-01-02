@@ -251,26 +251,45 @@
                    app:layout_constraintTop_toTopOf="parent"
                    android:layout_marginTop="500dp">
 
-                   <Button
-                       android:id="@+id/editScheduleButton"
-                       style="@style/Widget.Material3.Button.ElevatedButton"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textSize="16dp"
-                       android:fontFamily="@font/poppins_semibold"
-                       android:text="Add a schedule"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintTop_toTopOf="parent"/>
-
 
 
                    <LinearLayout
                        android:layout_width="match_parent"
-                       android:layout_height="700dp"
+                       android:layout_height="1000dp"
                        android:layout_marginTop="20dp"
                        android:paddingLeft="10dp"
-                       android:paddingRight="10dp">
+                       android:paddingRight="10dp"
+                       android:orientation="vertical">
+
+
+                       <LinearLayout
+                           android:contentDescription="Study Schedule Title and Button"
+                           android:layout_width="match_parent"
+                           android:layout_height="80dp"
+                           android:orientation="horizontal">
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Study Schedules"
+                               android:fontFamily="@font/poppins_semibold"
+                               android:textSize="21dp"
+                               android:layout_marginStart="15dp"
+                               android:layout_marginBottom="10dp" />
+
+                           <Button
+                               android:id="@+id/editScheduleButton"
+                               style="@style/Widget.Material3.Button.ElevatedButton"
+                               android:layout_width="160dp"
+                               android:layout_height="50dp"
+                               android:textSize="16dp"
+                               android:fontFamily="@font/syne_regular"
+                               android:text="Add a schedule"
+                               android:layout_marginStart="20dp"/>
+
+                       </LinearLayout>
+
+
 
                        <ListView
                            android:id="@+id/ScheduleListView"

@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import com.google.firebase.Timestamp;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.util.Listener;
 
@@ -70,7 +69,6 @@ public class studyScheduleUploadFragment extends Fragment {
 
 
 
-
         SubmitSchedule.setOnClickListener(v->{
             SendToFireStore();
         });
@@ -88,8 +86,17 @@ public class studyScheduleUploadFragment extends Fragment {
             }
         });
 
+        /*
+        *  if(ValidateForm()){
+                UploadHashmapToDatabase();
 
-        
+            }else{
+                Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            }
+        */
+
+
+
 
 
 
@@ -105,6 +112,7 @@ public class studyScheduleUploadFragment extends Fragment {
     public interface LoadIntoHashmapCallback{void OnLoadIntoHashmap(Map<String, Object> hashmap);}
     public void LoadIntoHashmap(LoadIntoHashmapCallback callback) {
         Map<String, Object> hashmap = new HashMap<>();
+
 
         // Assuming subject, description, Venue, and StudyMode are TextViews or similar
         String subjectText = subject.getText().toString().trim();
@@ -163,7 +171,6 @@ public class studyScheduleUploadFragment extends Fragment {
                 UploadHashmapToDatabase(hashmap);
             }
         });
-
     }
 
     public boolean ValidateForm(){

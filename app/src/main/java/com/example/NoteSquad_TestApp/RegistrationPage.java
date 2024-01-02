@@ -115,16 +115,12 @@ public final class RegistrationPage extends AppCompatActivity {
                 Log.e("Firestore", "Error getting document: ", task.getException());
             }
         });
+
     }
 
 
 
 
-    public void openHomePage() {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-        finish();
-    }
 
 
     public void openLoginPage(){
