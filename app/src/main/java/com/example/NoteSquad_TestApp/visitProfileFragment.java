@@ -277,10 +277,6 @@ public class visitProfileFragment extends Fragment {
                             .addOnSuccessListener(v->{
                                Log.d("Network","Successfully Removed"+UserEmail+"'s "+EmailToRemove+"Connection");
                                AddOrMinusVariablesUserCollection('-',"connections",UserEmail);
-
-
-                               // TODO:Minus connections value after every unfollow connection
-
                             })
                             .addOnFailureListener(e->{
                                 Log.e("Network","Unable to remove"+UserEmail+"'s "+EmailToRemove+"Connection");
