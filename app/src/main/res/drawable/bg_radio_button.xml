@@ -1,19 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- custom_radio_button_with_shadow.xml -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:state_checked="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#64B5F6"/>
-            <corners android:radius="8dp"/>
-        </shape>
+        <layer-list>
+            <!-- Shadow for Checked State -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#777777" /> <!-- Color for checked state -->
+                    <corners android:radius="20dp" /> <!-- Rounded corners for the box -->
+                </shape>
+            </item>
+
+            <!-- Box for Checked State -->
+            <item android:right="2dp" android:left="0dp" android:top="0dp" android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#6750a4" /> <!-- Shadow color for checked state -->
+                    <corners android:radius="20dp" /> <!-- Rounded corners for the shadow -->
+                </shape>
+            </item>
+        </layer-list>
     </item>
 
     <item android:state_checked="false">
-        <shape android:shape="rectangle">
-            <solid android:background="@android:color/transparent"/>
-            <corners android:radius="8dp"/>
-        </shape>
+        <layer-list>
+
+            <!-- Shadow for Unchecked State -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#ededed" /> <!-- Color for unchecked state -->
+                    <corners android:radius="20dp" /> <!-- Rounded corners for the box -->
+                </shape>
+            </item>
+
+            <!-- Box for Unchecked State -->
+            <item android:right="3dp" android:left="0dp" android:top="0dp" android:bottom="3dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/white" /> <!-- Shadow color for unchecked state -->
+                    <corners android:radius="20dp" /> <!-- Rounded corners for the shadow -->
+                </shape>
+            </item>
+        </layer-list>
     </item>
-
-
 </selector>

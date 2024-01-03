@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.util.Listener;
@@ -24,6 +25,7 @@ import java.time.Month;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -37,6 +39,10 @@ public class studyScheduleUploadFragment extends Fragment {
     private String StudyMode= null;
     private String CurrentUserEmail;
     private Button SubmitSchedule;
+    private TextView chooseDate;
+    private TextView chooseTime;
+    private Button DateStudySchedule;
+    private Button TimeStudySchedule;
     FirebaseFirestore Firestore;
     RadioGroup radioGroup;
     RadioButton radioButtonPhysical;
@@ -63,9 +69,48 @@ public class studyScheduleUploadFragment extends Fragment {
         timePicker = (TimePicker) view.findViewById(R.id.timePicker);
         calendarView = (CalendarView) view.findViewById(R.id.calendarView);
         SubmitSchedule = (Button)view.findViewById(R.id.SubmitSchedule);
-        radioGroup = (RadioGroup) view.findViewById(R.id.RadioGroupStudySchedule);
-        radioButtonPhysical = (RadioButton) view.findViewById(R.id.radioButtonPhysical);
-        radioButtonOnline = (RadioButton) view.findViewById(R.id.radioButtonOnline);
+
+        //FIRDAUS ADDED CODE
+        chooseDate = view.findViewById(R.id.chooseDate);
+        chooseTime = view.findViewById(R.id.chooseTime);
+
+        //DateStudySchedule = view.findViewById(R.id.DateStudySchedule);
+        //TimeStudySchedule = view.findViewById(R.id.TimeStudySchedule);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                String selectedDate = formatDate(year, month, dayOfMonth);
+                chooseDate.setText(selectedDate);
+            }
+        });
+
+        calendarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show the calendar view when the button is clicked
+                calendarView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                String selectedTime = formatTime(hourOfDay, minute);
+                chooseTime.setText("Selected time: " + selectedTime);
+            }
+        });
+
+        timePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show the calendar view when the button is clicked
+                calendarView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
 
 
 
@@ -86,32 +131,49 @@ public class studyScheduleUploadFragment extends Fragment {
             }
         });
 
-        /*
-        *  if(ValidateForm()){
-                UploadHashmapToDatabase();
+        if(ValidateForm()){
+            UploadHashmapToDatabase((Map<String, Object>) listenerSchedule);
 
-            }else{
-                Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            }
-        */
-
-
-
-
-
-
-
-
-
-
+        }else{
+            Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
+        }
 
         return view;
     }
+
+    //FIRDAUS ADDED CODE
+    private String formatDate(int year, int month, int dayOfMonth) {
+        // The month is 0-based, so add 1 to it
+        month += 1;
+        return String.format("%02d/%02d/%04d", dayOfMonth, month, year);
+    }
+
+    private String formatTime(int hourOfDay, int minute) {
+        String amPm;
+        if (hourOfDay >= 12) {
+            amPm = "PM";
+            if (hourOfDay > 12) {
+                hourOfDay -= 12;
+            }
+        } else {
+            amPm = "AM";
+            if (hourOfDay == 0) {
+                hourOfDay = 12;
+            }
+        }
+
+        return String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
+    }
+
+
 
 
     public interface LoadIntoHashmapCallback{void OnLoadIntoHashmap(Map<String, Object> hashmap);}
     public void LoadIntoHashmap(LoadIntoHashmapCallback callback) {
         Map<String, Object> hashmap = new HashMap<>();
+
+
+        //SETTING THE RADIOBUTTON INTO TEXT
 
 
         // Assuming subject, description, Venue, and StudyMode are TextViews or similar
@@ -145,7 +207,7 @@ public class studyScheduleUploadFragment extends Fragment {
 
         callback.OnLoadIntoHashmap(hashmap);
 
-
+        //TODO:Fix timestamp on schedule page
     }
 
 
@@ -161,7 +223,6 @@ public class studyScheduleUploadFragment extends Fragment {
                 .addOnFailureListener(e->{
                     Log.e("Study-Schedule","Error in uploading Studying schedule", e);
                 });
-
     }
 
     public void SendToFireStore(){
