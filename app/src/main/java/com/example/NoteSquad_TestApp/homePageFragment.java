@@ -140,33 +140,7 @@ public class homePageFragment extends Fragment {
 
 
 
-        //SETTING LISTVIEW FOR STUDY SCHEDULE FOR HOMEPAGE
-        StudySchedulelistView = (ListView) view.findViewById(R.id.ScheduleListView);
-        handleQueryResults(new HandleQueryResultsCallback() {
-            @Override
-            public void onHandleQueryResults(List<Map<String, Object>> dataList) {
-                String[] from = {"Subject","Description", "Venue","timestampField","Author","Study-Mode"};
-                int[] to = {R.id.schedule_title, R.id.schedule_description,R.id.schedule_venue,R.id.Schedule_date ,R.id.Schedule_Author, R.id.Study_Mode};
-                SimpleAdapter adapter = new SimpleAdapter(
-                        getContext(),
-                        dataList,
-                        R.layout.schedule_list_item,
-                        from,
-                        to
-                );
 
-
-
-
-                        ;
-                Log.d("Study-Schedule", "Successfully ran handleQueryResults()");
-                Log.d("Study-Schedule", "Hashmap:"+dataList);
-
-                StudySchedulelistView.setAdapter(adapter);
-            }
-        });
-
-                        ;
                 Log.d("Study-Schedule", "Successfully ran handleQueryResults()");
                 Log.d("Study-Schedule", "Hashmap:"+dataList);
 
