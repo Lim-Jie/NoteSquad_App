@@ -1,43 +1,30 @@
 package com.example.NoteSquad_TestApp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.firestore.auth.User;
-
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.MissingFormatArgumentException;
-import java.util.NoSuchElementException;
 import java.util.Random;
 
 
 public final class MainActivity extends AppCompatActivity {
-    Object Email;
     FirebaseFirestore firestore;
     FirebaseAuth firebaseAuth;
     GoogleSignInOptions gso;
@@ -50,7 +37,7 @@ public final class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-            FirebaseApp.initializeApp(this);
+            FirebaseApp.initializeApp(MainActivity.this);
 
             firebaseAuth = FirebaseAuth.getInstance();
             firestore = FirebaseFirestore.getInstance();
@@ -87,27 +74,25 @@ public final class MainActivity extends AppCompatActivity {
 
             gsc= GoogleSignIn.getClient(this,gso);
             account = GoogleSignIn.getLastSignedInAccount(this);
-            if(account!=null){
-                checkAndInitializeUserData();
-                openHomePage();
 
+            //IF ACCOUNT IS SIGNED IN, OPEN HOME PAGE
+            if(account!=null){
+                try{
+                    openHomePage();
+                }catch (Exception e){
+                    System.out.println(e);
+                }
             }
+
 
             //GOOGLE SIGN IN BUTTON
             googleimage.setOnClickListener(v->{
                 SignIn();
             });
 
-
-
-
-
-
-
-
-
-
-
+            if(instance==null){
+                instance = this;
+            }
 
     }
 
@@ -116,7 +101,11 @@ public final class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //TO LET HOMEPAGE REFER A METHOD IN MAINACTIVITY
-        instance = this;
+
+    }
+
+    public static String getEmailString(){
+       return  instance.getEmailObject();
     }
 
 
@@ -125,8 +114,13 @@ public final class MainActivity extends AppCompatActivity {
         if (instance != null) {
             // Call the check() method or any other logic you want
             instance.checkAndInitializeUserData();
+            instance.checkConnectionDatabase();
+            Log.d("Instance", "Successful");
+        }else{
+            Log.e("Instance", "Unsuccessful");
         }
     }
+
 
 
 
@@ -187,7 +181,7 @@ public final class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+/*
         if(requestCode==100){
             Task<GoogleSignInAccount> task= GoogleSignIn.getSignedInAccountFromIntent(data);
 
@@ -197,6 +191,26 @@ public final class MainActivity extends AppCompatActivity {
             }catch(ApiException e){
                 e.printStackTrace();
                 Toast.makeText(this,"Error logging in",Toast.LENGTH_SHORT).show();
+            }
+        }
+*/
+        if (requestCode == 100) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount googleSignInAccount = task.getResult(ApiException.class);
+                if (googleSignInAccount != null) {
+                    // Successful Google sign-in
+                    // Perform actions such as fetching user data and opening the home page
+                    checkAndInitializeUserData();
+                    checkConnectionDatabase();
+                    openHomePage();
+                } else {
+                    // Google sign-in failed
+                    Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT).show();
+                }
+            } catch (ApiException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -221,7 +235,7 @@ public final class MainActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
-
+                    Log.e("Firestore", "Error checking checkIfUsernameExist method"+ e);
                 });
     }
 
@@ -258,6 +272,50 @@ public final class MainActivity extends AppCompatActivity {
     }
 
 
+    public void checkConnectionDatabase(){
+        DocumentReference userDocRef = firestore.collection("Connections").document(getEmailObject());
+
+        userDocRef.collection("Network").document("Connection").get().addOnCompleteListener(task->{
+            if(task.isSuccessful()){
+                DocumentSnapshot documentSnapshot= task.getResult();
+                if (!documentSnapshot.exists()){
+                    initializeConnectionsHashmap(userDocRef);
+                    Log.d("Database Initialization", "Database has not been created yet");
+                }
+
+            }else{
+                Log.e("MainActivity", "Error checking connection database", task.getException());
+            }
+
+        });
+    }
+
+    public void initializeConnectionsHashmap(DocumentReference userDocRef) {
+        CollectionReference networkCollection = userDocRef.collection("Network");
+
+        // Add the "Invitation" document
+        networkCollection.document("Invitation")
+                .set(new HashMap<String, Object>())
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Invitation document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Invitation document: ", e));
+
+        // Add the "Connection" document
+        Map<String,Object> map= new HashMap<String, Object>();
+        map.put("UserExist",true);
+
+        networkCollection.document("Connection")
+                .set(map)
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Connection document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Connection document: ", e));
+
+        // Add the "Requests" document
+        networkCollection.document("Requested")
+                .set(new HashMap<String, Object>())
+                .addOnSuccessListener(aVoid -> Log.d("MainActivity", "Requests document created successfully"))
+                .addOnFailureListener(e -> Log.e("MainActivity", "Error creating Requests document: ", e));
+    }
+
+
 
 
 
@@ -283,4 +341,7 @@ public final class MainActivity extends AppCompatActivity {
         finish();
     }
 }
+
+
+
 

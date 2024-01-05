@@ -24,9 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:labelVisibilityMode="labeled"
         app:layout_constraintStart_toStartOf="parent"
+        android:theme="@style/TextAppearance.BottomNavigation"
         app:menu="@menu/menu"
 
 
