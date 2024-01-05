@@ -97,7 +97,7 @@ public class studyScheduleUploadFragment extends Fragment {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 String selectedTime = formatTime(hourOfDay, minute);
-                chooseTime.setText("Selected time: " + selectedTime);
+                chooseTime.setText(selectedTime);
             }
         });
 
@@ -114,13 +114,16 @@ public class studyScheduleUploadFragment extends Fragment {
 
 
 
-        SubmitSchedule.setOnClickListener(v->{
+        /*SubmitSchedule.setOnClickListener(v->{
             SendToFireStore();
-        });
+        });*/
 
 
         //RADIO BUTTON AND GROUP SETUP
         radioGroup = (RadioGroup) view.findViewById(R.id.RadioGroupStudySchedule);
+        radioButtonOnline = (RadioButton) view.findViewById(R.id.radioButtonOnline);
+        radioButtonPhysical = (RadioButton) view.findViewById(R.id.radioButtonPhysical);
+
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             // Use the lambda parameters (group and checkedId) instead of the class-level variable selectedRadioButtonId
@@ -131,12 +134,20 @@ public class studyScheduleUploadFragment extends Fragment {
             }
         });
 
-        if(ValidateForm()){
+        SubmitSchedule.setOnClickListener(v -> {
+            if (ValidateForm()) {
+                SendToFireStore();
+            } else {
+                Toast.makeText(getContext(), "Please fill in all fields correctly", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*if(ValidateForm()){
             UploadHashmapToDatabase((Map<String, Object>) listenerSchedule);
 
         }else{
             Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
         return view;
     }
@@ -219,6 +230,8 @@ public class studyScheduleUploadFragment extends Fragment {
                 .addOnSuccessListener(v->{
                     Log.d("Study-Schedule","Upload Successful "+CurrentUserEmail);
                     Toast.makeText(getContext(), "Successfully scheduled", Toast.LENGTH_SHORT).show();
+
+
                 })
                 .addOnFailureListener(e->{
                     Log.e("Study-Schedule","Error in uploading Studying schedule", e);
@@ -240,7 +253,7 @@ public class studyScheduleUploadFragment extends Fragment {
                 description.getText().toString().trim().isEmpty() ||
                 Venue.getText().toString().trim().isEmpty() ||
                 calendarView.getDate() == 0 ||  // Assuming 0 represents an invalid date
-                (radioButtonOnline.isChecked() && radioButtonPhysical.isChecked())) {
+                (!radioButtonOnline.isChecked() && !radioButtonPhysical.isChecked())) {
             return false;
         }else{
 
