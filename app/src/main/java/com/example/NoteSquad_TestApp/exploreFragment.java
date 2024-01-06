@@ -84,7 +84,7 @@ public class exploreFragment extends Fragment {
                 @Override
                 public void onHandleQueryResults(List<Map<String, Object>> dataList) {
                     String[] from = {"Subject", "Description", "Venue", "timestampField", "Author", "Study-Mode"};
-                    int[] to = {R.id.schedule_title, R.id.schedule_decription, R.id.schedule_venue, R.id.schedule_date, R.id.schedule_author, R.id.study_mode};
+                    int[] to = {R.id.schedule_title, R.id.schedule_description, R.id.schedule_venue, R.id.Schedule_date, R.id.Schedule_Author, R.id.Study_Mode};
                     SimpleAdapter adapter = new SimpleAdapter(
                             getContext(),
                             dataList,
