@@ -45,14 +45,11 @@ public final class HomePage extends AppCompatActivity {
         }
 
 
-
-
-
-            //GOOGLE FIREBASE SETTINGS
-            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
-            gsc = GoogleSignIn.getClient(this, gso);
+        //GOOGLE FIREBASE SETTINGS
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        gsc = GoogleSignIn.getClient(this, gso);
 
 
         //SWITCH FRAGMENT ON BOTTOM NAVIGATION BAR
@@ -73,7 +70,7 @@ public final class HomePage extends AppCompatActivity {
                 return true;
             }
             else if( R.id.item_4==no){ //ForumFragment Button 3
-                replaceFragment(new forumFragment());
+                replaceFragment(new ForumFragment());
                 return true;
             }
             else if( R.id.item_5==no){ //ProfileFragment Button 4
@@ -220,6 +217,18 @@ HomeFragment homefragment = (HomeFragment) getFragmentManager().findFragmentByTa
 if (homefragment != null) {
     homefragment.use();
 }
+
+
+
+
+________________________________________________________________________
+Inside build.gradle app file set
+
+buildFeatures{
+viewBinding = true
+}
+
+
 
 
 
