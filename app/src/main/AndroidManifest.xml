@@ -2,36 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.NoteSquad_TestApp">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Authentication_user_test1"
-        tools:targetApi="31"
-        android:enableOnBackInvokedCallback="true">
-
+        tools:targetApi="31">
+        <activity
+            android:name=".photoEditing"
+            android:exported="false" />
         <activity
             android:name=".RegistrationPage"
             android:exported="true" />
         <activity
             android:name=".HomePage"
-            android:exported="true"/> <!--Removed unecessary intent filters -->
-
+            android:exported="true" /> <!-- Removed unecessary intent filters -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -41,15 +48,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.NoteSquad_TestApp.fileprovider"
+            android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths"/>  <!-- Define your paths in res/xml/file_paths.xml -->
+    </provider>
     </application>
+
 </manifest>
-
-
-
-<!--  <intent-filter>
-<action android:name="android.intent.action.MAIN" />
-
-<category android:name="android.intent.category.LAUNCHER" />
-</intent-filter>
--->

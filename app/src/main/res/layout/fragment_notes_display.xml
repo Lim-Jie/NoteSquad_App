@@ -19,24 +19,40 @@
         android:background="#80000000"> <!-- Initially set to gone -->
 
         <!-- TextView for displaying the description -->
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="Your Description"
-            android:textColor="#ffffff"
-            android:textSize="18dp"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="95dp">
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Description"
+                android:textColor="#ffffff"
+                android:textSize="18dp" />
+        </ScrollView>
+
         <ImageView
+            android:id="@+id/flag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_outlined_flag_24"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="100dp"
-            android:layout_marginLeft="280dp"
-            />
+            android:src="@drawable/baseline_outlined_flag_24" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_thumbs_up_down_24"
+            android:src="@drawable/baseline_thumb_up_off_alt_24"
+            android:id="@+id/upvote"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="260dp"
+            /><!-- Adjust the text color as needed -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_thumb_down_off_alt_24"
+            android:id="@+id/downvote"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="310dp"
             /><!-- Adjust the text color as needed -->
@@ -45,15 +61,40 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_edit_note_24"
             android:layout_marginTop="100dp"
-            android:layout_marginLeft="340dp"
+            android:layout_marginLeft="337dp"
+            android:id="@+id/editButton"
             />
         <ImageView
+            android:id="@+id/shareButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_share_24"
             android:layout_marginTop="100dp"
-            android:layout_marginLeft="365dp"
+            android:layout_marginLeft="360dp"
             />
+
+        <TextView
+            android:id="@+id/numOfUpvvotes"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="283dp"
+            android:layout_marginTop="96dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="500"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textStyle="bold"></TextView>
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="283dp"
+            android:layout_marginTop="109dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/numOfDownvotes"
+            android:text="500"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/red" ></TextView>
     </RelativeLayout>
 
 </FrameLayout>

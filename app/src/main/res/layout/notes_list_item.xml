@@ -21,14 +21,14 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="7dp"
             android:text="Note Title"
-            android:textStyle="italic">
+            android:textStyle="bold|italic">
 
         </TextView>
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_below="@+id/noteTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"

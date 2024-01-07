@@ -7,6 +7,7 @@ public class NotePage {
     ArrayList<Notes> notesList;
 
 
+
     public NotePage(String subject, ArrayList<Notes> notesList) {
         this.subject = subject;
         this.notesList = notesList;

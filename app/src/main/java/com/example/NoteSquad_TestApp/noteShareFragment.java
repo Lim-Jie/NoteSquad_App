@@ -6,11 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 
@@ -19,6 +25,10 @@ public class noteShareFragment extends Fragment {
 
     RecyclerView notesRecView;
     FloatingActionButton addingButton;
+
+    private FirebaseFirestore firestore;
+    private FirebaseAuth auth;
+    private FirebaseUser currentUser;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +41,11 @@ public class noteShareFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_note_share, container, false);
         notesRecView=view.findViewById(R.id.notesPageRecView);
-        ArrayList<NotePage> notePages=new ArrayList<>();
+        firestore = FirebaseFirestore.getInstance();
 
-        notePages.add(new NotePage("Physics",createNotesList()));
-        notePages.add(new NotePage("Mathematics",createNotesList()));
-        notePages.add(new NotePage("Biology",createNotesList()));
 
-       NotesPageRecycleViewAdapter adapter = new NotesPageRecycleViewAdapter(getContext());
-        adapter.setNotePage(notePages);
+        fetchNotesFromFirestore();
 
-        notesRecView.setAdapter(adapter);
-        notesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
        addingButton = view.findViewById(R.id.addingButton);
         addingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,14 +58,7 @@ public class noteShareFragment extends Fragment {
 
         return view;
     }
-    // Helper method to create a list of notes
-    private ArrayList<Notes> createNotesList() {
-        ArrayList<Notes> notes = new ArrayList<>();
-        notes.add(new Notes("Note For Tutorial 7","In this set of Chinese notes, we delve into the evolutionary journey and future trends of Artificial Intelligence (AI). From the early days of expert systems to the current realms of deep learning and natural language processing, AI technology has been continually advancing. We provide an in-depth exploration of fundamental concepts in machine learning, including supervised learning, unsupervised learning, and reinforcement learning, discussing their real-life applications. ","https://i.ebayimg.com/images/g/Yp0AAOSw6pRlFAOj/s-l1200.jpg","Physics"));
-        notes.add(new Notes("Note For Tutorial 10","haha2@gmail.com","https://i.ebayimg.com/images/g/pQUAAOSw7JNidtGV/s-l1200.jpg","Physics"));
-        notes.add(new Notes("Note For Tutorial 20","haha3@gmail.com","https://i.pinimg.com/750x/94/43/28/9443284564d71afb67de298e8426fcd1.jpg","Physics"));
-        return notes;
-    }
+
     private void loadSubmitNotesFragment() {
         // Create an instance of the submit_notes fragment
         Submit_Notes submitNotesFragment = new Submit_Notes();
@@ -73,6 +70,49 @@ public class noteShareFragment extends Fragment {
                 .addToBackStack(null)  // Optional: Adds the transaction to the back stack
                 .commit();
     }
+    private void fetchNotesFromFirestore() {
+        // Fetch notes data from Firebase Firestore based on subject titles
+
+        ArrayList<NotePage> notePages = new ArrayList<>();
+
+        // Define the subjects you want to retrieve
+        String[] subjects = {"Physics", "Mathematics", "Biology", "General", "Computer Science", "Economics", "English"};
+
+        for (String subject : subjects) {
+            ArrayList<Notes> notesList = new ArrayList<>();
+
+            // Replace the collection path and query based on your Firestore structure
+            firestore.collection("notes")
+                    .whereEqualTo("subjectTitle", subject)
+                    .whereEqualTo("isPublic", true) // Filter notes where isPublic is true
+                    .addSnapshotListener((value, error) -> {
+                        if (error != null) {
+                            Log.e("LOL", "Listen failed.", error);
+                            return;
+                        }
+
+                        notesList.clear(); // Clear the existing list
+
+                        for (QueryDocumentSnapshot document : value) {
+                            Notes note = document.toObject(Notes.class);
+                            notesList.add(note);
+                        }
+
+                        NotePage notePage = new NotePage(subject, notesList);
+                        notePages.add(notePage);
+                        updateRecyclerViewAdapter(notePages);
+                    });
+        }
+    }
+
+    private void updateRecyclerViewAdapter(ArrayList<NotePage> notePages) {
+        NotesPageRecycleViewAdapter adapter = new NotesPageRecycleViewAdapter(getContext());
+        adapter.setNotePage(notePages);
+
+        notesRecView.setAdapter(adapter);
+        notesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
 
 
 

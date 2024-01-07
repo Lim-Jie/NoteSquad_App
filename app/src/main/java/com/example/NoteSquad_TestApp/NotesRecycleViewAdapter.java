@@ -2,6 +2,7 @@ package com.example.NoteSquad_TestApp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,8 @@ public class NotesRecycleViewAdapter extends RecyclerView.Adapter<NotesRecycleVi
     }
 
     public interface OnImageClickListener {
-        void onImageClick(String imageUrl, String description);
+
+        void onImageClick(String imageUrl, String description,boolean isFlagged,int upvotes,int downvotes);
     }
 
 
@@ -60,13 +62,14 @@ public class NotesRecycleViewAdapter extends RecyclerView.Adapter<NotesRecycleVi
             @Override
             public void onClick(View v) {
                 if (onImageClickListener != null) {
-                    onImageClickListener.onImageClick(notes.get(position).getImageURL(), notes.get(position).getDescription());
+                    onImageClickListener.onImageClick(notes.get(position).getimageUrl(), notes.get(position).getNoteDescription(),notes.get(position).isFlagged(),notes.get(position).getUpvotes(),notes.get(position).getDownvotes());
                 }
             }
         });
 
 
-        Glide.with(context).asBitmap().load(notes.get(position).getImageURL())
+
+        Glide.with(context).asBitmap().load(notes.get(position).getimageUrl())
                 .into(holder.image);
     }
 

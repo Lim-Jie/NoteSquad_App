@@ -4,13 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import java.util.ArrayList;
-
-import javax.security.auth.Subject;
 
 public class NotesPageRecycleViewAdapter extends RecyclerView.Adapter<NotesPageRecycleViewAdapter.ViewHolder>   implements NotesRecycleViewAdapter.OnImageClickListener{
     private ArrayList<NotePage> notePage=new ArrayList<>();
@@ -57,12 +52,12 @@ public class NotesPageRecycleViewAdapter extends RecyclerView.Adapter<NotesPageR
     }
 
     @Override
-    public void onImageClick(String imageUrl, String description) {
-        loadImageDisplayFragment(imageUrl, description);
+    public void onImageClick(String imageUrl, String description, boolean isFlagged, int upvotes, int downvotes) {
+        loadImageDisplayFragment(imageUrl, description,isFlagged,upvotes,downvotes);
     }
-    private void loadImageDisplayFragment(String imageUrl, String description) {
+    private void loadImageDisplayFragment(String imageUrl, String description,boolean isFlagged, int upvotes, int downvotes) {
         // Create an instance of the fragment to display the image
-        NotesDisplayFragment imageDisplayFragment = NotesDisplayFragment.newInstance(imageUrl, description);
+        NotesDisplayFragment imageDisplayFragment = NotesDisplayFragment.newInstance(imageUrl, description,isFlagged,upvotes,downvotes);
 
         // Use a FragmentTransaction to replace the current fragment with the image display fragment
         FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
