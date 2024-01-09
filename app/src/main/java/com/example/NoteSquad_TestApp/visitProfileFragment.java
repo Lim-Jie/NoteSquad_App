@@ -5,6 +5,8 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,17 +17,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.core.Query;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class visitProfileFragment extends Fragment {
+
     private Button connectButton;
     private TextView profileBiography;
     private TextView profileUniversity;
@@ -42,7 +49,8 @@ public class visitProfileFragment extends Fragment {
     static boolean ExistInNetworkBool;
     static boolean InvitationExistsBool;
 
-
+    RecyclerView recyclerView;
+    NotesRecycleViewAdapter notesAdapter;
     public visitProfileFragment(String email, String ownUserEmail) {
         CurrentUserEmail = ownUserEmail;
         EmailString = email;
@@ -185,6 +193,13 @@ public class visitProfileFragment extends Fragment {
         });
 
 
+        recyclerView = view.findViewById(R.id.recyclerView);
+        notesAdapter = new NotesRecycleViewAdapter(getContext());
+        recyclerView.setAdapter(notesAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2)); // Adjust the layout manager as needed
+
+        // Load and display user-specific notes
+        loadUserSpecificNotes();
 
 
 
@@ -193,6 +208,28 @@ public class visitProfileFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void loadUserSpecificNotes() {
+        // Fetch user-specific notes from Firestore based on user's email
+        ArrayList<Notes> userNotesList = new ArrayList<>();
+
+        // Replace the collection path and query based on your Firestore structure
+        Firestore.collection("notes")
+                .whereEqualTo("userEmail",EmailString)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Notes note = document.toObject(Notes.class);
+                            userNotesList.add(note);
+                        }
+                        // Update the RecyclerView with user-specific notes
+                        notesAdapter.setNotes(userNotesList);
+                    } else {
+                        Log.e("profileFragment", "Error getting user-specific notes", task.getException());
+                    }
+                });
     }
 
 
