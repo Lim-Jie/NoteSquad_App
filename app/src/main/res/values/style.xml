@@ -1,0 +1,18 @@
+
+<resources>
+    <style name="roundimageview" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+        <item name="color">@color/white</item>
+
+
+    </style>
+
+    <style name="TextAppearance.BottomNavigation" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/robotoregular</item>
+    </style>
+
+
+
+</resources>
