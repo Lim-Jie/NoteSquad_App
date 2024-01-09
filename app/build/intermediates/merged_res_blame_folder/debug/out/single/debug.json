@@ -1,0 +1,430 @@
+[
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_custom_spinner_subject_title.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\custom_spinner_subject_title.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_thumb_up_alt_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_thumb_up_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_updateshedulerectanglebox.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\updateshedulerectanglebox.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_solarcalendarsearchboldduotone.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\solarcalendarsearchboldduotone.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_userresgistrationbox.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\userresgistrationbox.xml"
+    },
+    {
+        "merged": "com.example.NoteSquad_TestApp.app-merged_res-47:/layout_fragment_study_schedule_upload.xml.flat",
+        "source": "com.example.NoteSquad_TestApp.app-main-49:/layout/fragment_study_schedule_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_descriptions.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\descriptions.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_ic_mode_edit.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\ic_mode_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_solarhomesmilebroken.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\solarhomesmilebroken.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_forum_list_item.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\forum_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_physics.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\physics.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_shadow.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\shadow.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_bg_radio_button.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\bg_radio_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_border_background.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\border_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_math.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\math.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_contributions.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\contributions.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\menu_menu_searchbar.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\menu\\menu_searchbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_posts.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\posts.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_edit_note_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_edit_note_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_pomodorotechnique.jpg.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\pomodorotechnique.jpg"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_cs.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\cs.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_note_page_list_item.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\note_page_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_rectangle_background_lj.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\rectangle_background_lj.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_books.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\books.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_share_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_share_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_ustom_radio_button.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\ustom_radio_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_forum_details.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_forum_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_keyboard_arrow_left_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_keyboard_arrow_left_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_rounded_corner_rectangles.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\rounded_corner_rectangles.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_note_share.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_note_share.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_google_tile.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\google_tile.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_explore.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_explore.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_materialsymbolsexploreoutline.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\materialsymbolsexploreoutline.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_materialsymbolsaccountcirclefull.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\materialsymbolsaccountcirclefull.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\font_poppins_semibold.ttf.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\font\\poppins_semibold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_radio_text_color.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\radio_text_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_engagement.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\engagement.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_solarpennewsquareoutline.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\solarpennewsquareoutline.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_thumb_up_off_alt_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_thumb_up_off_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_edit_note_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_edit_note_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_add_forum.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_add_forum.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_paperclips.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\paperclips.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_biology.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\biology.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_english.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\english.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_schedule_list_item.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\schedule_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_outlined_flag_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_outlined_flag_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_access_time_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_access_time_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_home_page.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_multipleruler.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\multipleruler.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_updateuserdetails.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_updateuserdetails.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_visit_profile.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_visit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_pin_drop_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_pin_drop_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_profilebackgroupcircle.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\profilebackgroupcircle.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_flag_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_flag_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_notes_list_item.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\notes_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_notes_display.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_notes_display.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_activity_registration_page.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_registration_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_economics.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\economics.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_searchbar.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\searchbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_shadow_box2.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\shadow_box2.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_pencil.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\pencil.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\menu_menu.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\menu\\menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\font_robotoregular.ttf.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\font\\robotoregular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_sq3rtechnique.jpg.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\sq3rtechnique.jpg"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_solarcloudfilelineduotone.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\solarcloudfilelineduotone.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_profilepagebox.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\profilepagebox.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_lightgrey_rounded_corner_rectangle.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\lightgrey_rounded_corner_rectangle.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_general.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\general.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_thumb_down_off_alt_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_thumb_down_off_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_forum_comment_item.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\forum_comment_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_ruler.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\ruler.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_submit_notes.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_submit_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_close_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_close_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_feynmantechnique2.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\feynmantechnique2.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_activity_photoediting.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_photoediting.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_nails.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\nails.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\font_syne_regular.ttf.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\font\\syne_regular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_study_schedule_upload.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_study_schedule_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_round_date_range_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\round_date_range_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_fragment_forum.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_forum.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\font_roboto_light.ttf.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\font\\roboto_light.ttf"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_profile_pencil.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\profile_pencil.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_thumbs_up_down_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_thumbs_up_down_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_login_rectangle_rounded.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\login_rectangle_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_connections.png.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\connections.png"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\layout_activity_home_page.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_baseline_thumb_down_alt_24.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\baseline_thumb_down_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-merged_res-47:\\drawable_placeholder_image.xml.flat",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\drawable\\placeholder_image.xml"
+    }
+]

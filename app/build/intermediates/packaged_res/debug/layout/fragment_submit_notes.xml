@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       >
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="205dp"
+        android:layout_height="183dp"
+        android:layout_gravity='center'
+        android:layout_marginTop="20dp">
+        >
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="182dp"
+            android:layout_height="169dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/placeholder_image" />
+
+        <ImageView
+            android:layout_width="41dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="160dp"
+            android:src="@drawable/nails"
+            android:id="@+id/nails"></ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <Spinner
+        android:id="@+id/subjectTitleSubmit"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/noteTitleSubmit"
+        android:layout_gravity='center'
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="272dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pencil"></ImageView>
+        <EditText
+            android:id="@+id/noteTitleSubmit"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Note Title (Max 20 Characters)"
+            android:inputType="text"
+            android:maxLength="20"
+            android:padding="5dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+
+        >
+
+        <ImageView
+            android:layout_width="127dp"
+            android:layout_height="113dp"
+            android:layout_marginLeft="110dp"
+            android:src="@drawable/books" />
+
+        <EditText
+            android:id="@+id/descriptionSubmit"
+            android:layout_width="320dp"
+            android:layout_height="123dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Desciption"
+            android:inputType="textMultiLine"
+
+            android:padding="5dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="131dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="28dp"
+        android:text="Public"
+        android:textStyle="bold" />
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="20dp">
+
+    <Button
+        android:id="@+id/selectPhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/photoImageView"
+        android:layout_marginLeft="30dp"
+        android:backgroundTint="#E6E6E6"
+        android:text="Select Photo"
+        android:textColor="#ff6750a4"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:text="Upload"
+        android:textStyle="bold" />
+</LinearLayout>
+
+
+</LinearLayout>

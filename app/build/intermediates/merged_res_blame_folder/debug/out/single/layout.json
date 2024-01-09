@@ -1,0 +1,94 @@
+[
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\forum_comment_item.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\forum_comment_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_explore.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_explore.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\schedule_list_item.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\schedule_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\forum_list_item.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\forum_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_note_share.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_note_share.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_forum.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_forum.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\notes_list_item.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\notes_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_study_schedule_upload.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_study_schedule_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\activity_registration_page.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_registration_page.xml"
+    },
+    {
+        "merged": "com.example.NoteSquad_TestApp.app-mergeDebugResources-46:/layout/fragment_study_schedule_upload.xml",
+        "source": "com.example.NoteSquad_TestApp.app-main-49:/layout/fragment_study_schedule_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\custom_spinner_subject_title.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\custom_spinner_subject_title.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_home_page.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\activity_photoediting.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_photoediting.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\note_page_list_item.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\note_page_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_visit_profile.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_visit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_forum_details.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_forum_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_updateuserdetails.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_updateuserdetails.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\activity_home_page.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_notes_display.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_notes_display.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_add_forum.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_add_forum.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\fragment_submit_notes.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\fragment_submit_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-mergeDebugResources-46:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\lijie\\.gradle\\daemon\\8.4\\com.example.NoteSquad_TestApp.app-main-49:\\layout\\activity_main.xml"
+    }
+]

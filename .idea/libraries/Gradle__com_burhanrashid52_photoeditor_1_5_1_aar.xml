@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.burhanrashid52:photoeditor:1.5.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0807fbf527bd421b136b12f048f56026/transformed/photoeditor-1.5.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0807fbf527bd421b136b12f048f56026/transformed/photoeditor-1.5.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0807fbf527bd421b136b12f048f56026/transformed/photoeditor-1.5.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.burhanrashid52/photoeditor/1.5.1/9d4c016d875b33f666724160dc83f3343dab952c/photoeditor-1.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
